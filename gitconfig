@@ -1,0 +1,11 @@
+[user]
+	name = Tim Thirion
+	email = t.a.thirion@gmail.com
+	editor = vim
+
+[color]
+	pager = true
+	ui = auto
+
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
