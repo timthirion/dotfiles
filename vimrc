@@ -1,5 +1,3 @@
-set nocompatible
-
 " Color scheme & syntax highlighting
 set t_Co=256
 set background=dark
@@ -9,6 +7,7 @@ colorscheme wombat
 let mapleader=","
 
 " Settings
+set expandtab " Expand tabs to spaces
 set foldmethod=syntax " Fold lines according to source type
 set guioptions-=m " Remove the menu bar
 set guioptions-=T " Remove the toolbar
@@ -18,6 +17,7 @@ set ignorecase " Ignore case when searching
 set incsearch " Enable incremental search
 set list " Show whitespace
 set list listchars=tab:»·,trail:· " Format whitespace display
+set nocompatible " Don't be compatible with vi
 set noswapfile " Disable swap files
 set number numberwidth=4 " Enable line numbers (width 4)
 set ruler " Show line and column number of cursor
@@ -48,3 +48,13 @@ nnoremap L $
 
 " Clear all highlights after incremental search
 nnoremap <CR> :noh<CR><CR>
+
+" Windows-specific settings
+if has("win32") || has("win16")
+	au GUIEnter * simalt ~x
+	set gfn=Consolas:h12:cANSI
+	source $VIMRUNTIME/vimrc_example.vim
+	source $VIMRUNTIME/mswin.vim
+	behave mswin
+endif
+
