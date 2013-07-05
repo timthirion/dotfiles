@@ -8,6 +8,8 @@ let mapleader=","
 
 " Settings
 set expandtab " Expand tabs to spaces
+set foldenable " Enable folding
+set foldlevel=99 " Don't close any folds when a file is opened
 set foldmethod=syntax " Fold lines according to source type
 set guioptions-=m " Remove the menu bar
 set guioptions-=T " Remove the toolbar
@@ -45,6 +47,10 @@ inoremap <esc> <nop>
 " Useful remappings
 nnoremap H 0
 nnoremap L $
+
+" Abbreviations
+abbreviate #i #include
+abbreviate #d #define
 
 " Clear all highlights after incremental search
 nnoremap <CR> :noh<CR><CR>
