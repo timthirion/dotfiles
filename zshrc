@@ -6,3 +6,5 @@ case $(uname) in
 		alias ll="ls -Gla"
 	;;
 esac
+
+[[ -z "$TMUX" ]] && exec tmux
