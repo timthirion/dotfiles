@@ -7,6 +7,7 @@ colorscheme wombat
 let mapleader=","
 
 " Settings
+set backspace=indent,eol,start " Make backspace key work good
 set expandtab " Expand tabs to spaces
 set foldenable " Enable folding
 set foldlevel=99 " Don't close any folds when a file is opened
