@@ -1,6 +1,7 @@
 # Path
 export PATH=/usr/local/cuda/bin:$PATH
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+export DESKTOP=/cygdrive/c/users/tthirion/desktop
 
 # Aliases
 alias ll="ls -Gla --color"
@@ -47,7 +48,7 @@ man() {
 # Prompt
 #
 PROMPT="
-%{$fg[red]%}%n%{$reset_color%} at %{$fg[blue]%}%m%{$reset_color%} in %{$fg_bold[green]%}%1d%{$reset_color%}
+%{$fg[red]%}%n%{$reset_color%} at %{$fg[blue]%}%m%{$reset_color%} in %{$fg_bold[green]%}%3d%{$reset_color%}
 %{$reset_color%}%# "
 #RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 
@@ -60,5 +61,10 @@ case $(uname) in
     ;;
     Linux)
         [[ -z "$TMUX" ]] && exec tmux
+    ;;
+    *)
+        export DESKTOP=/cygdrive/c/users/tthirion/desktop/
+        export WRAP=/cygdrive/c/wrap/geosource/
+        export PEGASUS=/cygdrive/c/wrap/v2014/distributionVS2010/Pegasus/x64/Debug
     ;;
 esac
