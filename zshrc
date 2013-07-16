@@ -65,6 +65,7 @@ case $(uname) in
     *)
         export DESKTOP=/cygdrive/c/users/tthirion/desktop/
         export WRAP=/cygdrive/c/wrap/geosource/
-        export PEGASUS=/cygdrive/c/wrap/v2014/distributionVS2010/Pegasus/x64/Debug
+        export PEGASUS=/cygdrive/c/wrap/v2014/distributionVS2010/Pegasus/x64/Debug/
+        export SCRATCH=/cygdrive/s/
     ;;
 esac
