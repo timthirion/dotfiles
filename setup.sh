@@ -11,6 +11,7 @@ echo "Copying files"
 ln -sv ~/dotfiles/vimrc ~/.vimrc
 ln -sv ~/dotfiles/vim ~/.vim
 ln -sv ~/dotfiles/zshrc ~/.zshrc
+ln -sv ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sv ~/dotfiles/ghc ~/.ghc
 ln -sv ~/dotfiles/osx ~/.osx
 ln -sv ~/dotfiles/gitconfig ~/.gitconfig
