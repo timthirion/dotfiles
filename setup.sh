@@ -1,7 +1,11 @@
+#!/bin/bash
+
 echo "Deleting old files"
 rm ~/.vimrc
 rm -rf ~/.vim
 rm ~/.zshrc
+rm ~/.config/fish/config.fish
+rm ~/.tmux.conf
 rm -rf ~/.ghc
 rm ~/.osx
 rm ~/.gitconfig
@@ -11,6 +15,7 @@ echo "Copying files"
 ln -sv ~/dotfiles/vimrc ~/.vimrc
 ln -sv ~/dotfiles/vim ~/.vim
 ln -sv ~/dotfiles/zshrc ~/.zshrc
+ln -sv ~/dotfiles/config.fish ~/.config/fish/config.fish
 ln -sv ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sv ~/dotfiles/ghc ~/.ghc
 ln -sv ~/dotfiles/osx ~/.osx
