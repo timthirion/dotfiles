@@ -44,6 +44,8 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 inoremap jk <esc>
 inoremap <esc> <nop>
+vnoremap jk <esc>
+vnoremap <esc> <nop>
 
 " Useful remappings
 nnoremap H 0
