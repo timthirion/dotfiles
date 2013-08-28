@@ -34,14 +34,16 @@ set title " Display the file name in the window title
 set ttyfast " Indicate fast terminal connection
 
 " Hardcore mode
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-inoremap jk <esc>
-inoremap <esc> <nop>
-vnoremap jk <esc>
-vnoremap <esc> <nop>
+no <up> <nop>
+no <down> <nop>
+no <left> <nop>
+no <right> <nop>
+ino jk <esc>
+ino <esc> <nop>
+cno jk <esc>
+cno <esc> <nop>
+vno v <esc>
+vno <esc> <nop>
 
 " Useful remappings
 nnoremap H 0
