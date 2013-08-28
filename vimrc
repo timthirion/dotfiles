@@ -46,7 +46,7 @@ vno v <esc>
 vno <esc> <nop>
 
 " Useful remappings
-nnoremap H 0
+nnoremap H ^
 nnoremap L $
 
 " Abbreviations
