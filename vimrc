@@ -38,8 +38,10 @@ noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
-noremap jk <esc>
-noremap <esc> <nop>
+inoremap jk <esc>
+inoremap <esc> <nop>
+vnoremap jk <esc>
+vnoremap <esc> <nop>
 
 " Useful remappings
 nnoremap H 0
