@@ -3,9 +3,6 @@ export PATH=/usr/local/cuda/bin:$PATH
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 export DESKTOP=/cygdrive/c/users/tthirion/desktop
 
-# Aliases
-alias ll="ls -Gla --color"
-
 autoload -U compinit
 compinit
 autoload -U colors
@@ -43,6 +40,31 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
     man "$@"
 }
+
+# Directory functions
+..() { cd .. }
+...() { cd ../.. }
+....() { cd ../../.. }
+.....() { cd ../../../.. }
+
+md() { mkdir -p $@ }
+
+l1() { tree --dirsfirst -ChFL 1 $@ }
+l2() { tree --dirsfirst -ChFL 2 $@ }
+l3() { tree --dirsfirst -ChFL 3 $@ }
+l4() { tree --dirsfirst -ChFL 4 $@ }
+l5() { tree --dirsfirst -ChFL 5 $@ }
+l6() { tree --dirsfirst -ChFL 6 $@ }
+
+ll1() { tree --dirsfirst -ChFupDaL 1 $@ }
+ll2() { tree --dirsfirst -ChFupDaL 2 $@ }
+ll3() { tree --dirsfirst -ChFupDaL 3 $@ }
+ll4() { tree --dirsfirst -ChFupDaL 4 $@ }
+ll5() { tree --dirsfirst -ChFupDaL 5 $@ }
+ll6() { tree --dirsfirst -ChFupDaL 6 $@ }
+
+l() { l1 $@ }
+ll() { ll1 $@ }
 
 #
 # Prompt
