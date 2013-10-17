@@ -21,3 +21,5 @@ function ll6; tree --dirsfirst -ChFupDaL 6 $argv; end;
 
 function l; l1 $argv; end
 function ll; ll1 $argv; end
+
+tmux
