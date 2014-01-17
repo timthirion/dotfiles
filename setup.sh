@@ -24,4 +24,10 @@ ln -sv ~/dotfiles/gitignore_global ~/.gitignore_global
 
 git config --global core.excludesfile ~/.gitignore_global
 
+if [[ "$(uname)" == "Darwin" ]]; then
+    echo "Setting OS X defaults"
+    chmod +x ~/.osx
+    /bin/bash ~/.osx
+fi
+
 echo "Done"

@@ -22,4 +22,13 @@ function ll6; tree --dirsfirst -ChFupDaL 6 $argv; end;
 function l; l1 $argv; end
 function ll; ll1 $argv; end
 
+set fish_greeting ""
+
+set RGI_ABI darwin64-gcc-4.0
+set DEPENDENCY_PATH /Users/tim/src/deps/darwin64-gcc-4.0
+set P4CLIENT mac-mini
+set P4USER tthirion
+set STUDIO_HOME /Users/tim/src
+set WRAP_HOME "$STUDIO_HOME/trunk"
+
 tmux
