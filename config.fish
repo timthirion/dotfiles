@@ -22,6 +22,8 @@ function ll6; tree --dirsfirst -ChFupDaL 6 $argv; end;
 function l; l1 $argv; end
 function ll; ll1 $argv; end
 
+function colors; /bin/bash colors.sh; end;
+
 set fish_greeting ""
 
 set RGI_ABI darwin64-gcc-4.0
