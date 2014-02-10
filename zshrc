@@ -67,6 +67,12 @@ l() { l1 $@ }
 ll() { ll1 $@ }
 
 #
+# Aliases
+#
+v() { vim $@ }
+g() { git $@ }
+
+#
 # Prompt
 #
 PROMPT="

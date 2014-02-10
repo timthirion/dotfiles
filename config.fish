@@ -1,3 +1,6 @@
+set fish_greeting ""
+
+function ~;     cd ~; end
 function ..;    cd ..; end
 function ...;   cd ../..; end
 function ....;  cd ../../..; end
@@ -22,15 +25,19 @@ function ll6; tree --dirsfirst -ChFupDaL 6 $argv; end;
 function l; l1 $argv; end
 function ll; ll1 $argv; end
 
+function v; vim $argv; end;
+function g; git $argv; end;
+
 function colors; /bin/bash colors.sh; end;
+function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
-set fish_greeting ""
-
-set RGI_ABI darwin64-gcc-4.0
-set DEPENDENCY_PATH /Users/tim/src/deps/darwin64-gcc-4.0
+set RGI_ABI ios
+set DEPENDENCY_PATH /Users/tim/wrap/deps/$RGI_ABI
 set P4CLIENT mac-mini
 set P4USER tthirion
-set STUDIO_HOME /Users/tim/src
+set STUDIO_HOME /Users/tim/wrap
 set WRAP_HOME "$STUDIO_HOME/trunk"
+set TRUNK "$WRAP_HOME"
+set WRAP $WRAP_HOME/..
 
 tmux

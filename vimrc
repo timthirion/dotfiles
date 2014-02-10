@@ -56,6 +56,9 @@ abbreviate #d #define
 " Clear all highlights after incremental search
 nnoremap <CR> :noh<CR><CR>
 
+" Makefile specific
+autocmd FileType make setlocal noexpandtab
+
 " Windows-specific settings
 if has("win32") || has("win16")
 	au GUIEnter * simalt ~x
