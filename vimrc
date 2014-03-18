@@ -56,8 +56,18 @@ abbreviate #d #define
 " Clear all highlights after incremental search
 nnoremap <CR> :noh<CR><CR>
 
-" Makefile specific
-autocmd FileType make setlocal noexpandtab
+" Makefiles
+au FileType make setlocal noexpandtab
+
+" Haskell
+au FileType haskell setlocal ts=8 sts=4 sw=4
+au FileType haskell setlocal expandtab smarttab shiftround nojoinspaces
+
+" Python
+au FileType python setlocal ts=4 sts=4 sw=4 smarttab
+
+" HTML
+au FileType html setlocal sw=2 ts=2
 
 " Windows-specific settings
 if has("win32") || has("win16")
