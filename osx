@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Set the fastest possible key repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 0
+
 # Enable the 2D Dock
 defaults write com.apple.dock no-glass -bool true
 

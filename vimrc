@@ -67,7 +67,8 @@ au FileType haskell setlocal expandtab smarttab shiftround nojoinspaces
 au FileType python setlocal ts=4 sts=4 sw=4 smarttab
 
 " HTML
-au FileType html setlocal sw=2 ts=2
+au FileType html setlocal sw=2 ts=2 nowrap
+au BufWritePre,BufRead *.html :normal gg=G
 
 " Windows-specific settings
 if has("win32") || has("win16")
