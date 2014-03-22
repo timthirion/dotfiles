@@ -76,15 +76,15 @@ augroup END
 " Haskell
 augroup Haskell
 autocmd!
-autocmd FileType haskell setlocalts=8 sts=4 sw=4
-autocmd FileType haskell setlocalexpandtab smarttab shiftround nojoinspaces
+autocmd FileType haskell setlocal ts=8 sts=4 sw=4
+autocmd FileType haskell setlocal expandtab smarttab shiftround nojoinspaces
 autocmd FileType haskell nno <buffer> <localleader>c I--<esc>
 augroup END
 
 " HTML
 augroup HTML
 autocmd!
-autocmd FileType html setlocalsw=2 ts=2 nowrap
+autocmd FileType html setlocal sw=2 ts=2 nowrap
 autocmd BufWritePre,BufRead *.html :normal gg=G
 augroup END
 
@@ -97,14 +97,14 @@ augroup END
 " Makefiles
 augroup Make
 autocmd!
-autocmd FileType make setlocalnoexpandtab
+autocmd FileType make setlocal noexpandtab
 autocmd FileType make nno <buffer> <localleader>c I#<esc>
 augroup END
 
 " Python
 augroup python
 autocmd!
-autocmd FileType python setlocalts=4 sts=4 sw=4 smarttab
+autocmd FileType python setlocal ts=4 sts=4 sw=4 smarttab
 autocmd FileType python nnoremap <buffer> <localleader>c I//<esc>
 augroup END
 
