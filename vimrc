@@ -1,3 +1,5 @@
+set nocompatible
+
 " Color scheme & syntax highlighting
 set t_Co=256
 set background=dark
@@ -21,7 +23,6 @@ set ignorecase " Ignore case when searching
 set incsearch " Enable incremental search
 set list " Show whitespace
 set list listchars=tab:»·,trail:· " Format whitespace display
-set nocompatible " Don't be compatible with vi
 set noswapfile " Disable swap files
 set number numberwidth=4 " Enable line numbers (width 4)
 set ruler " Show line and column number of cursor
@@ -99,6 +100,12 @@ augroup Make
 autocmd!
 autocmd FileType make setlocal noexpandtab
 autocmd FileType make nno <buffer> <localleader>c I#<esc>
+augroup END
+
+" Markdown
+augroup Markdown
+autocmd!
+autocmd FileType markdown setlocal syntax=off
 augroup END
 
 " Python
