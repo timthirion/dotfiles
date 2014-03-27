@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Deleting old files"
+#echo "Deleting old config files"
 rm -f ~/.vimrc
 rm -rf ~/.vim
 rm -f ~/.zshrc
@@ -9,23 +9,28 @@ rm -f ~/.tmux.conf
 rm -rf ~/.ghc
 rm -f ~/.gitconfig
 rm -f ~/.gitignore_global
+#printf "Done\n\n"
 
-echo "Copying files"
-ln -sv ~/dotfiles/vimrc ~/.vimrc
-ln -sv ~/dotfiles/vim ~/.vim
-ln -sv ~/dotfiles/zshrc ~/.zshrc
-ln -sv ~/dotfiles/config.fish ~/.config/fish/config.fish
-ln -sv ~/dotfiles/tmux.conf ~/.tmux.conf
-ln -sv ~/dotfiles/ghc ~/.ghc
-ln -sv ~/dotfiles/gitconfig ~/.gitconfig
-ln -sv ~/dotfiles/gitignore_global ~/.gitignore_global
+#echo "Symlinking config files"
+ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/dotfiles/vim ~/.vim
+ln -s ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/config.fish ~/.config/fish/config.fish
+ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/ghc ~/.ghc
+ln -s ~/dotfiles/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 
 git config --global core.excludesfile ~/.gitignore_global
 
+#printf "Done\n"
+
+# OS X
 if [[ "$(uname)" == "Darwin" ]]; then
-    echo "Setting OS X defaults"
     chmod +x ./osx
     /bin/bash ./osx
+    /bin/bash ./brew_installs.sh
 fi
 
-echo "Done"
+#printf "\n"
+#echo "All done!"
