@@ -1,5 +1,8 @@
 set fish_greeting ""
 
+set CORES (sysctl hw.ncpu | awk '{print $2}')
+set CORES_PLUS_ONE (math $CORES + 1)
+
 function ~;     cd ~; end
 function ..;    cd ..; end
 function ...;   cd ../..; end
@@ -25,13 +28,16 @@ function ll6; tree --dirsfirst -ChFupDaL 6 $argv; end;
 function l; l1 $argv; end
 function ll; ll1 $argv; end
 
-function v; vim $argv; end;
+function a; ack $argv; end;
+function f; find . -name $argv; end;
 function g; git $argv; end;
+function m; make -j $CORES_PLUS_ONE; end;
+function v; vim $argv; end;
 
 function colors; /bin/bash colors.sh; end;
 function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
-set RGI_ABI ios
+set RGI_ABI ios-arm64
 set DEPENDENCY_PATH /Users/tim/wrap/deps/$RGI_ABI
 set P4CLIENT mac-mini
 set P4USER tthirion
