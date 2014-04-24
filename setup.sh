@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [[ $EUID -ne 0 ]]; then
-    echo "Run as root"
-    exit 1
+if [ ! -d ~/.config ]; then
+    mkdir ~/.config
+    mkdir ~/.config/fish
 fi
 
 rm -f ~/.vimrc
@@ -29,6 +29,12 @@ if [[ "$(uname)" == "Darwin" ]]; then
     /bin/bash ./osx
     /bin/bash ./brew_installs.sh
 elif [[ "$(uname)" == "Linux" ]]; then
+    if [[ $EUID -ne 0 ]]; then
+        echo "Run as root"
+        exit 1
+    fi
     ln -s ~/dotfiles/tmux_linux.conf ~/.tmux.conf
     /bin/bash ./aptget_installs.sh
 fi
+
+rm -rf 1

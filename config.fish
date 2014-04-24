@@ -30,6 +30,7 @@ function ll; ll1 $argv; end
 
 function a; ack $argv; end;
 function f; find . -name $argv; end;
+function fg; find / -name $argv 2>/dev/null; end;
 function g; git $argv; end;
 function m; make -j $CORES_PLUS_ONE; end;
 function v; vim $argv; end;
@@ -39,7 +40,7 @@ function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
 set RGI_ABI ios-arm64
 set DEPENDENCY_PATH /Users/tim/wrap/deps/$RGI_ABI
-set P4CLIENT mac-mini
+set P4CLIENT tim-mbp13
 set P4USER tthirion
 set STUDIO_HOME /Users/tim/wrap
 set WRAP_HOME "$STUDIO_HOME/trunk"
