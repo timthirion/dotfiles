@@ -17,6 +17,7 @@ set foldlevel=99 " Don't close any folds when a file is opened
 set foldmethod=syntax " Fold lines according to source type
 set guioptions-=m " Remove the menu bar
 set guioptions-=T " Remove the toolbar
+set guioptions-=L " Remove the left vertical scroll
 set guioptions-=r " Remove the right vertical scroll
 set hlsearch " Enable search highlighting
 set ignorecase " Ignore case when searching
@@ -24,13 +25,13 @@ set incsearch " Enable incremental search
 set list " Show whitespace
 set list listchars=tab:»·,trail:· " Format whitespace display
 set noswapfile " Disable swap files
-set number numberwidth=4 " Enable line numbers (width 4)
+set number numberwidth=4 " Enable line numbers (width four)
 set ruler " Show line and column number of cursor
 set scrolloff=3 " Scroll three lines before top/bottom of view
-set shiftwidth=4 " Indent = 4 spaces
+set shiftwidth=2 " Indent = two spaces
 set smartcase " Ignore ignorecase option when search string has uppercase
 set smartindent " Indent intelligently
-set tabstop=4 " Tab indent = four spaces
+set tabstop=2 " Tab indent = two spaces
 set textwidth=80 " Set text width at 80 characters
 set title " Display the file name in the window title
 set ttyfast " Indicate fast terminal connection
@@ -72,6 +73,7 @@ autocmd!
 autocmd FileType c,cpp iabbrev #i #include
 autocmd FileType c,cpp iabbrev #d #define
 autocmd FileType c,cpp nno <buffer> <localleader>c I//<esc>
+autocmd FileType c,cpp setlocal sw=2 ts=2
 augroup END
 
 " Haskell
