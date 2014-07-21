@@ -9,6 +9,9 @@ colorscheme wombat
 let mapleader=","
 let maplocalleader="\\"
 
+" Load plugins
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " Settings
 set backspace=indent,eol,start " Make backspace key work good
 set expandtab " Expand tabs to spaces
@@ -73,7 +76,9 @@ autocmd!
 autocmd FileType c,cpp iabbrev #i #include
 autocmd FileType c,cpp iabbrev #d #define
 autocmd FileType c,cpp nno <buffer> <localleader>c I//<esc>
-autocmd FileType c,cpp setlocal sw=2 ts=2
+autocmd FileType c,cpp setlocal ts=2 sts=2 sw=2
+autocmd FileType c,cpp setlocal cindent
+autocmd FileType c,cpp setlocal cinoptions=g0,{1s
 augroup END
 
 " Haskell

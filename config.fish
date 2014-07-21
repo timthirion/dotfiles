@@ -34,7 +34,14 @@ function fg; find / -name $argv 2>/dev/null; end;
 function g; git $argv; end;
 function m; make -j $CORES_PLUS_ONE; end;
 function n; ninja; end;
-function v; vim $argv; end;
+function v;
+  switch (uname)
+    case Darwin
+      mvim $argv
+    case Linux
+      gvim $argv
+  end;
+end;
 
 function colors; /bin/bash colors.sh; end;
 function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
