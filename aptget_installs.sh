@@ -15,6 +15,7 @@ cmds=(\
     fish            \
     ffmpeg          \
     git             \
+    hg              \
     python          \
     tmux            \
     tree            \

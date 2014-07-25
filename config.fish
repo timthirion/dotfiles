@@ -46,4 +46,15 @@ end;
 function colors; /bin/bash colors.sh; end;
 function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
+set VTK ~/Kitware/VTK
+set PARAVIEW ~/Kitware/ParaView
+
+set BUILD ~/Kitware/build
+set VTK_DEBUG_BUILD         ~/Kitware/build/VTK/Debug/
+set VTK_RELEASE_BUILD       ~/Kitware/build/VTK/Release/
+set PARAVIEW_DEBUG_BUILD    ~/Kitware/build/ParaView/Debug/bin
+set PARAVIEW_RELEASE_BUILD  ~/Kitware/build/ParaView/Release/bin
+set RGG_DEBUG_BUILD         ~/Kitware/build/cmbnuclear/Debug/bin
+set RGG_RELEASE_BUILD       ~/Kitware/build/cmbnuclear/Release/bin
+
 tmux
