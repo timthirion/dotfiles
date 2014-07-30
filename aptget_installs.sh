@@ -1,37 +1,43 @@
 #!/bin/bash
-
+set -euo pipefail
+IFS=$'\n\t'
 
 if ! type apt-get > /dev/null; then
-    echo "apt-get not found"
-    exit 1
+  echo "apt-get not found"
+  exit 1
 fi
 
 apt-get update > /dev/null
 
 cmds=(\
-    ack             \
-    autoconf        \
-    automake        \
-    fish            \
-    ffmpeg          \
-    git             \
-    hg              \
-    python          \
-    tmux            \
-    tree            \
-    wget            \
+  ack-grep    \
+  autoconf    \
+  automake    \
+  fish        \
+  git         \
+  python      \
+  tmux        \
+  tree        \
+  wget        \
+  vim         \
 );
-
 for c in ${cmds[*]}; do
-    if ! type $c > /dev/null; then
-        apt-get -yqq install $c
-    fi
+  if ! type $c > /dev/null; then
+    apt-get -yqq install $c
+  fi
 done
 
-
 packages=(\
-    mesa-common-dev \
+  libav-tools     \
+  mesa-common-dev \
 );
 for p in ${packages[*]}; do
-    apt-get -yqq install $p
+  apt-get -yqq install $p
+done
+
+easies=(\
+  mercurial \
+);
+for e in ${easies[*]}; do
+  easy_install -q $e
 done
