@@ -30,6 +30,7 @@ done
 packages=(\
   libav-tools     \
   mesa-common-dev \
+  vim-gnome       \
 );
 for p in ${packages[*]}; do
   apt-get -yqq install $p

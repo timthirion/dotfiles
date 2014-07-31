@@ -1,6 +1,14 @@
 set fish_greeting ""
 
-set CORES (sysctl hw.ncpu | awk '{print $2}')
+switch (uname)
+  case Darwin
+    set CORES (sysctl hw.ncpu | awk '{print $2}')
+  case Linux
+    set PROCESSORS (cat /proc/cpuinfo | grep processor | wc -l)
+    set CORES_PER_PROCESSOR (cat /proc/cpuinfo | grep cores | head -1 | awk '{print $4}')
+    set CORES (echo "$PROCESSORS * $CORES_PER_PROCESSOR" | bc -l)
+end
+
 set CORES_PLUS_ONE (math $CORES + 1)
 
 function ~;     cd ~; end
