@@ -2,14 +2,14 @@ set fish_greeting ""
 
 switch (uname)
   case Darwin
-    set CORES (sysctl hw.ncpu | awk '{print $2}')
+    set CPUS (sysctl -n hw.ncpu)
   case Linux
-    set PROCESSORS (cat /proc/cpuinfo | grep processor | wc -l)
-    set CORES_PER_PROCESSOR (cat /proc/cpuinfo | grep cores | head -1 | awk '{print $4}')
-    set CORES (echo "$PROCESSORS * $CORES_PER_PROCESSOR" | bc -l)
+    set CPUS (cat /proc/cpuinfo | grep processor | wc -l)
+    set CORES_PER_CPU (cat /proc/cpuinfo | grep cores | head -1 | awk '{print $4}')
+    set TOTAL_CORES (echo "$PROCESSORS * $CORES_PER_PROCESSOR" | bc -l)
 end
 
-set CORES_PLUS_ONE (math $CORES + 1)
+set CPUS_PLUS_ONE (math $CPUS + 1)
 
 function ~;     cd ~; end
 function ..;    cd ..; end
@@ -40,7 +40,7 @@ function a; ack $argv; end;
 function f; find . -name $argv; end;
 function fg; find / -name $argv 2>/dev/null; end;
 function g; git $argv; end;
-function m; make -j $CORES_PLUS_ONE; end;
+function m; make -j $CPUS_PLUS_ONE; end;
 function n; ninja; end;
 function v;
   switch (uname)
