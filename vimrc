@@ -78,7 +78,9 @@ autocmd FileType c,cpp iabbrev #d #define
 autocmd FileType c,cpp nno <buffer> <localleader>c I//<esc>
 autocmd FileType c,cpp setlocal ts=2 sts=2 sw=2
 autocmd FileType c,cpp setlocal cindent
+if $KITWARE_STYLE == '1'
 autocmd FileType c,cpp setlocal cinoptions=g0,{1s
+endif
 augroup END
 
 " Haskell
