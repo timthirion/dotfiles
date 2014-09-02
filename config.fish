@@ -1,6 +1,8 @@
+# No text on startup
 set fish_greeting ""
 
-set -g -x PATH /usr/local/bin /usr/bin /bin /usr/sbin /opt/X11/bin /usr/texbin
+# Set PATH
+set -gx PATH /usr/local/bin /usr/bin /bin /usr/sbin /opt/X11/bin /usr/texbin
 
 # Determine number of processor cores available
 switch (uname)
@@ -16,11 +18,12 @@ set CPUS_PLUS_ONE (math $CPUS + 1)
 # Set path to clang library (libclang.[so|dylib])
 switch (uname)
   case Darwin
-    set CLANG_LIBRARY_PATH (dirname (xcrun -find clang))/../lib
+    set -gx CLANG_LIBRARY_PATH (dirname (xcrun -find clang))/../lib
   case Linux
     # To do
 end
 
+# Useful navigation functions
 function ~;     cd ~; end
 function ..;    cd ..; end
 function ...;   cd ../..; end
@@ -46,6 +49,7 @@ function ll6; tree --dirsfirst -ChFupDaL 6 $argv; end;
 function l; l1 $argv; end
 function ll; ll1 $argv; end
 
+# One letter aliases
 function a; ack $argv; end;
 function f; find . -name $argv; end;
 function fg; find / -name $argv 2>/dev/null; end;
@@ -61,9 +65,11 @@ function v;
   end;
 end;
 
+# Convenience scripts
 function colors; /bin/bash colors.sh; end;
 function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
+# Show git branch status
 set fish_git_dirty_color red
 set fish_git_not_dirty_color green
 
@@ -86,6 +92,7 @@ function fish_prompt
   end
 end
 
+# Useful directory variables
 set VTK ~/Kitware/VTK
 set PARAVIEW ~/Kitware/ParaView
 
@@ -97,4 +104,5 @@ set PARAVIEW_RELEASE_BUILD  ~/Kitware/build/ParaView/Release/bin
 set RGG_DEBUG_BUILD         ~/Kitware/build/cmbnuclear/Debug/bin
 set RGG_RELEASE_BUILD       ~/Kitware/build/cmbnuclear/Release/bin
 
+# Start tmux
 tmux

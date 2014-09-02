@@ -5,6 +5,10 @@ if [ ! -d ~/.config ]; then
     mkdir ~/.config/fish
 fi
 
+git pull -q origin master > /dev/null
+git submodule init
+git submodule update
+
 rm -f ~/.vimrc
 rm -f ~/.gvimrc
 rm -rf ~/.vim
@@ -30,6 +34,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
     ln -s ~/dotfiles/tmux_darwin.conf ~/.tmux.conf
     /bin/bash ./osx
     /bin/bash ./brew_installs.sh
+    cd vim/bundle/clang_complete
+    sudo make -s install
+    cd ../../..
     if [[ "$SHELL" != "/usr/local/bin/fish" ]]; then
         if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
             sudo sh -c "echo /usr/local/bin/fish >> /etc/shells"

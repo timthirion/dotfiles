@@ -1,5 +1,5 @@
-[submodule "vim/clang_complete"]
-	path = vim/clang_complete
+[submodule "vim/bundle/clang_complete"]
+	path = vim/bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
