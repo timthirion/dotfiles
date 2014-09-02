@@ -9,8 +9,12 @@ colorscheme wombat
 let mapleader=","
 let maplocalleader="\\"
 
-" Load plugins
+" Set up ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" Set up clang_complete
+let g:clang_library_path=$CLANG_LIBRARY_PATH
+set completeopt-=preview " Don't show scratch preview
 
 " Settings
 set backspace=indent,eol,start " Make backspace key work good

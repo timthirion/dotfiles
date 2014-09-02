@@ -1,5 +1,8 @@
 set fish_greeting ""
 
+set -g -x PATH /usr/local/bin /usr/bin /bin /usr/sbin /opt/X11/bin /usr/texbin
+
+# Determine number of processor cores available
 switch (uname)
   case Darwin
     set CPUS (sysctl -n hw.ncpu)
@@ -8,8 +11,15 @@ switch (uname)
     set CORES_PER_CPU (cat /proc/cpuinfo | grep cores | head -1 | awk '{print $4}')
     set TOTAL_CORES (echo "$PROCESSORS * $CORES_PER_PROCESSOR" | bc -l)
 end
-
 set CPUS_PLUS_ONE (math $CPUS + 1)
+
+# Set path to clang library (libclang.[so|dylib])
+switch (uname)
+  case Darwin
+    set CLANG_LIBRARY_PATH (dirname (xcrun -find clang))/../lib
+  case Linux
+    # To do
+end
 
 function ~;     cd ~; end
 function ..;    cd ..; end
