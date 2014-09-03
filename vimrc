@@ -18,6 +18,7 @@ set completeopt-=preview " Don't show scratch preview
 
 " Settings
 set backspace=indent,eol,start " Make backspace key work good
+set encoding=utf-8 " Encode UTF-8 by default
 set expandtab " Expand tabs to spaces
 set foldenable " Enable folding
 set foldlevel=99 " Don't close any folds when a file is opened
@@ -31,6 +32,7 @@ set ignorecase " Ignore case when searching
 set incsearch " Enable incremental search
 set list " Show whitespace
 set list listchars=tab:»·,trail:· " Format whitespace display
+set nowrap " Don't wrap lines
 set noswapfile " Disable swap files
 set number numberwidth=4 " Enable line numbers (width four)
 set ruler " Show line and column number of cursor
@@ -38,6 +40,7 @@ set scrolloff=3 " Scroll three lines before top/bottom of view
 set shiftwidth=2 " Indent = two spaces
 set smartcase " Ignore ignorecase option when search string has uppercase
 set smartindent " Indent intelligently
+set showcmd " Display incomplete commands
 set tabstop=2 " Tab indent = two spaces
 set textwidth=80 " Set text width at 80 characters
 set title " Display the file name in the window title
