@@ -15,6 +15,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Set up clang_complete
 let g:clang_library_path=$CLANG_LIBRARY_PATH
 set completeopt-=preview " Don't show scratch preview
+let g:clang_complete_auto=0 " Disable for now
 
 " Basic vim options
 set backspace=indent,eol,start  " Make backspace key work good
