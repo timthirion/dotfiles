@@ -15,14 +15,17 @@ cmds=(\
     ack         \
     autoconf    \
     automake    \
+    erlang      \
     fish        \
     ffmpeg      \
     git         \
     hg          \
     python      \
+    sbcl        \
     tmux        \
     tree        \
     wget        \
+    libtiff     \
 );
 
 for c in ${cmds[*]}; do
@@ -33,4 +36,7 @@ for c in ${cmds[*]}; do
         #echo "Found $c"
     fi
 done
+
+brew install imagemagick --with-libtiff
+
 #printf "Done\n"
