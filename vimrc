@@ -64,8 +64,6 @@ inoremap jk <esc>
 inoremap <esc> <nop>
 cnoremap jk <esc>
 cnoremap <esc> <nop>
-vnoremap v <esc>
-vnoremap <esc> <nop>
 
 " Jump to end/beginning of line
 nnoremap H ^

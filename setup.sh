@@ -12,6 +12,7 @@ git submodule update -q
 rm -f ~/.vimrc
 rm -f ~/.gvimrc
 rm -rf ~/.vim
+rm -f ~/.emacs
 rm -f ~/.zshrc
 rm -f ~/.config/fish/config.fish
 rm -f ~/.tmux.conf
@@ -22,6 +23,7 @@ rm -f ~/.gitignore_global
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/gvimrc ~/.gvimrc
 ln -s ~/dotfiles/vim ~/.vim
+ln -s ~/dotfiles/emacs ~/.emacs
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/config.fish ~/.config/fish/config.fish
 ln -s ~/dotfiles/ghc ~/.ghc
