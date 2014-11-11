@@ -6,12 +6,36 @@
 
 
 ; Requirements
+(require 'cl)
 
 ; Initialize packages
 (require 'package)
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
+; Install required packages, if necessary
+(defvar required-packages
+  '(anti-zenburn-theme
+    evil
+    haskell-mode
+    key-chord
+    magit
+    solarized-theme
+    zenburn-theme))
+
+(defun packages-installed-p ()
+  (loop for p in required-packages
+	when (not (package-installed-p p)) do (return nil)
+	finally (return t)))
+    
+(unless (packages-installed-p)
+  (message "%s" "Refreshing package database ...")
+  (package-refresh-contents)
+  (message "%s" "Done.")
+  (dolist (p required-packages)
+    (when (not (package-installed-p p))
+      (package-install p))))
 
 ; Show whitespace
 (require 'whitespace)
@@ -21,12 +45,10 @@
 (ido-mode t)
 
 ; Require keychord
-(add-to-list 'load-path "~/.emacs.d/key-chord")
 (require 'key-chord)
 (key-chord-mode 1)
 
 ; Require evil (muahaha)
-(add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (evil-mode 1)
 
@@ -56,7 +78,7 @@
 (scroll-bar-mode -1)
 
 ; Choose among the built-in themes (pick one)
-(load-theme 'adwaita t)
+;(load-theme 'adwaita t)
 ;(load-theme 'deeper-blue t)
 ;(load-theme 'dichromacy t)
 ;(load-theme 'leuven t)
@@ -71,6 +93,11 @@
 ;(load-theme 'whiteboard t)
 ;(load-theme 'wombat t)
 
+; OR choose an installed theme
+;(load-theme 'solarized-light t)
+;(load-theme 'solarized-dark t)
+;(load-theme 'anti-zenburn t)
+(load-theme 'zenburn t)
 
 ; Text editing
 
