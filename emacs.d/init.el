@@ -7,6 +7,12 @@
 
 ; Requirements
 
+; Initialize packages
+(require 'package)
+(add-to-list 'package-archives
+	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 ; Show whitespace
 (require 'whitespace)
 
@@ -24,10 +30,13 @@
 (require 'evil)
 (evil-mode 1)
 
+; Require company
+;(add-to-list 'load-path "~/.emacs.d/elpa/company-0.8.7")
+;(autoload 'company-mode "company" nil t)
+
 ; Configure everything
 (add-to-list 'load-path "~/.emacs.d/config")
 (load-library "config-evil")
-
 
 ; Start up
 
