@@ -1,8 +1,18 @@
-;; Tim Thirion
-;; .emacs
-;; Last Updated: 11/10/2014
+; Tim Thirion
+; init.el
+; t.a.thirion@gmail.com
+; Started: ca. 2006
+; Updated: November 2014
+
 
 ; Requirements
+
+; Show whitespace
+(require 'whitespace)
+
+; Interactively do stuff
+(require 'ido)
+(ido-mode t)
 
 ; Require keychord
 (add-to-list 'load-path "~/.emacs.d/key-chord")
@@ -25,17 +35,19 @@
 (setq inhibit-startup-message t)
 
 ; Set the initial frame size
-(add-to-list 'default-frame-alist '(width . 202))
-(add-to-list 'default-frame-alist '(height . 60))
+;(add-to-list 'default-frame-alist '(width . 202))
+;(add-to-list 'default-frame-alist '(height . 60))
 
-; Hide the tool bar
+; OR start maximized
+(set-frame-parameter nil 'fullscreen 'fullboth)
+
+; Hide the menu, tool, and scroll bars
+(menu-bar-mode -1)
 (tool-bar-mode -1)
-
-; Hide the scroll bar
 (scroll-bar-mode -1)
 
 ; Choose among the built-in themes (pick one)
-;(load-theme 'adwaita t)
+(load-theme 'adwaita t)
 ;(load-theme 'deeper-blue t)
 ;(load-theme 'dichromacy t)
 ;(load-theme 'leuven t)
@@ -48,7 +60,7 @@
 ;(load-theme 'tsdh-light t)
 ;(load-theme 'wheatgrass t)
 ;(load-theme 'whiteboard t)
-(load-theme 'wombat t)
+;(load-theme 'wombat t)
 
 
 ; Text editing
@@ -62,9 +74,19 @@
 ; Suppress backup files
 (setq make-backup-files nil)
 
-; Enable line numbers
+; Enable line numbers (4 digits, justify right)
 (global-linum-mode t)
-(setq linum-format "%d ")
+(custom-set-variables '(linum-format (quote "%4d")))
 
 ; Disable audible and visual bells
 (setq ring-bell-function 'ignore)
+
+; Scroll smoothly
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
+      mouse-wheel-progressive-speed nil
+      mouse-wheel-follow-mouse 't
+      redisplay-dont-pause t
+      scroll-margin 1
+      scroll-step 1
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
