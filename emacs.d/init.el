@@ -17,6 +17,7 @@
 ; Install required packages, if necessary
 (defvar required-packages
   '(anti-zenburn-theme
+    company
     evil
     haskell-mode
     key-chord
@@ -53,8 +54,7 @@
 (evil-mode 1)
 
 ; Require company
-;(add-to-list 'load-path "~/.emacs.d/elpa/company-0.8.7")
-;(autoload 'company-mode "company" nil t)
+(add-hook 'after-init-hook 'global-company-mode)
 
 ; Configure everything
 (add-to-list 'load-path "~/.emacs.d/config")
