@@ -3,8 +3,10 @@
 #printf "\nChecking for needed utilities\n"
 
 if ! type brew > /dev/null 2&>1; then
-    #echo "Installing brew"
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    echo "Please install brew first"
+
+    # Don't run arbitrary shell scripts from the web
+    #ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 #else
     #echo "Found brew"
 fi
@@ -15,11 +17,15 @@ cmds=(\
     ack         \
     autoconf    \
     automake    \
+    coreutils   \
     erlang      \
     fish        \
     ffmpeg      \
     git         \
     hg          \
+    jq          \
+    npm         \
+    parallel    \
     python      \
     sbcl        \
     tmux        \
@@ -37,6 +43,10 @@ for c in ${cmds[*]}; do
     fi
 done
 
+# Install ImageMagick separately so we can add libtiff
 brew install imagemagick --with-libtiff
+
+# Upgrade everything
+brew upgrade
 
 #printf "Done\n"
