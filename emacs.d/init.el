@@ -19,17 +19,21 @@
   '(anti-zenburn-theme
     company
     evil
+    glsl-mode
     haskell-mode
     key-chord
     magit
+    markdown-mode
+    paredit
+    rainbow-delimiters
     solarized-theme
     zenburn-theme))
 
 (defun packages-installed-p ()
   (loop for p in required-packages
-	when (not (package-installed-p p)) do (return nil)
-	finally (return t)))
-    
+    when (not (package-installed-p p)) do (return nil)
+    finally (return t)))
+
 (unless (packages-installed-p)
   (message "%s" "Refreshing package database ...")
   (package-refresh-contents)
@@ -56,6 +60,20 @@
 ; Require company
 (add-hook 'after-init-hook 'global-company-mode)
 
+; Require paredit
+(autoload 'enable-paredit-mode "paredit"
+  "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook                  #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook                        #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook                        #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook            #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook                      #'enable-paredit-mode)
+
+; Require rainbow delimiters
+(require 'rainbow-delimiters)
+(add-hook 'emacs-startup-hook #'rainbow-delimiters-mode)
+
 ; Configure everything
 (add-to-list 'load-path "~/.emacs.d/config")
 (load-library "config-evil")
@@ -65,6 +83,9 @@
 ; Inhibit the startup message
 (setq inhibit-startup-message t)
 
+; Focus follows mouse
+(setq focus-follows-mouse t)
+
 ; Set the initial frame size
 ;(add-to-list 'default-frame-alist '(width . 202))
 ;(add-to-list 'default-frame-alist '(height . 60))
@@ -72,13 +93,14 @@
 ; OR start maximized
 (set-frame-parameter nil 'fullscreen 'fullboth)
 
-; Hide the menu, tool, and scroll bars
+; Hide the menu, tool, and scroll bars when windowed
 (menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+(when (window-system)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1))
 
 ; Choose among the built-in themes (pick one)
-;(load-theme 'adwaita t)
+(load-theme 'adwaita t)
 ;(load-theme 'deeper-blue t)
 ;(load-theme 'dichromacy t)
 ;(load-theme 'leuven t)
@@ -97,7 +119,7 @@
 ;(load-theme 'solarized-light t)
 ;(load-theme 'solarized-dark t)
 ;(load-theme 'anti-zenburn t)
-(load-theme 'zenburn t)
+;(load-theme 'zenburn t)
 
 ; Text editing
 
@@ -114,8 +136,23 @@
 (global-linum-mode t)
 (custom-set-variables '(linum-format (quote "%4d")))
 
+; Enable column numberes
+(column-number-mode 1)
+
 ; Disable audible and visual bells
 (setq ring-bell-function 'ignore)
+
+; No cursor blinking
+(blink-cursor-mode -1)
+
+; Highlight the current line
+;(global-hl-line-mode 1)
+
+; Word wrap at column 80 in all modes
+(turn-on-auto-fill)
+(set-fill-column 80)
+;(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;(add-hook 'text-mode-hook '(lambda () (set-fill-column 80)))
 
 ; Scroll smoothly
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
