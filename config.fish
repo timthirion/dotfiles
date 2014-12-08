@@ -51,12 +51,11 @@ function ll; ll1 $argv; end
 
 # One letter aliases
 function a; ack $argv; end;
+function e; emacs $argv; end;
 function f; find . -name $argv; end;
 function fg; find / -name $argv 2>/dev/null; end;
 function g; git $argv; end;
-function m; make -j $CPUS_PLUS_ONE; end;
-function n; ninja; end;
-function v;
+function gv;
   switch (uname)
     case Darwin
       mvim $argv
@@ -64,6 +63,9 @@ function v;
       gvim $argv
   end;
 end;
+function m; make -j $CPUS_PLUS_ONE; end;
+function n; ninja; end;
+function v; vim $argv; end;
 
 # Convenience scripts
 function colors; /bin/bash colors.sh; end;
