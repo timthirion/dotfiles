@@ -98,7 +98,7 @@ endfu
 com! WP call WordProcessorMode()
 
 " Shortcut to expand scoping braces properly
-autocmd FileType c,cpp,cs,cuda,java,javascript,rust
+autocmd FileType c,cpp,objc,objcpp,cs,cuda,java,javascript,rust
   \ ino <buffer> {{ <C-o>o{<CR>}<ESC><Up>o
 
 " C++
@@ -144,7 +144,13 @@ if $KITWARE_STYLE == '1'
   autocmd FileType c,cpp setlocal cinoptions+={1s
 endif
 
-augroup END
+augroup END " C++
+
+" Objective-C/C++
+autocmd FileType objc,objcpp setlocal cindent
+if $KITWARE_STYLE == '1'
+  autocmd FileType objc,objcpp setlocal cinoptions+={1s
+endif
 
 " Haskell
 augroup Haskell
