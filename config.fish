@@ -52,7 +52,7 @@ function ll; ll1 $argv; end
 # One letter aliases
 function a; ack $argv; end;
 function e; emacs $argv; end;
-function f; find . -name $argv; end;
+function f; find . -name "*$argv*"; end;
 function fg; find / -name $argv 2>/dev/null; end;
 function g; git $argv; end;
 function gv;
