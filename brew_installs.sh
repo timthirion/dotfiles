@@ -28,8 +28,10 @@ cmds=(\
     parallel    \
     python      \
     sbcl        \
+    screenfetch \
     tmux        \
     tree        \
+    w3m         \
     wget        \
     libtiff     \
 );

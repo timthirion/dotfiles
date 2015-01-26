@@ -8,6 +8,6 @@
 	ui = auto
 
 [alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %cn - %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	ln = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %cn - %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [core]
 	excludesfile = ~/.gitignore_global

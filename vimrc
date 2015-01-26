@@ -113,7 +113,7 @@ autocmd FileType c,cpp setlocal cinoptions=g0
 
 " Insert include guards when creating a new header file
 function! InsertIncludeGuards()
-  let guard_name = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  let guard_name = substitute(expand("%:t"), "\\.", "_", "g")
   let guard_name = "__" . guard_name . "__"
   "normal! o
   execute "normal! i#ifndef " . guard_name

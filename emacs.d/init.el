@@ -2,7 +2,7 @@
 ; init.el
 ; t.a.thirion@gmail.com
 ; Started: ca. 2006
-; Updated: November 2014
+; Updated: January 2015
 
 
 ; Requirements
@@ -16,7 +16,9 @@
 
 ; Install required packages, if necessary
 (defvar required-packages
-  '(anti-zenburn-theme
+  '(ample-theme
+    anti-zenburn-theme
+    cmake-font-lock
     company
     evil
     glsl-mode
@@ -54,6 +56,7 @@
 (key-chord-mode 1)
 
 ; Require evil (muahaha)
+(setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
 
@@ -73,8 +76,10 @@
 ; Require rainbow delimiters
 (require 'rainbow-delimiters)
 (add-hook 'emacs-startup-hook #'rainbow-delimiters-mode)
+;(global-rainbow-delimiters-mode)
 
 ; Configure everything
+
 (add-to-list 'load-path "~/.emacs.d/config")
 (load-library "config-evil")
 
@@ -86,12 +91,15 @@
 ; Focus follows mouse
 (setq focus-follows-mouse t)
 
-; Set the initial frame size
-;(add-to-list 'default-frame-alist '(width . 202))
-;(add-to-list 'default-frame-alist '(height . 60))
+; Set frame alpha
+(add-to-list 'default-frame-alist '(alpha 90 75))
 
-; OR start maximized
-(set-frame-parameter nil 'fullscreen 'fullboth)
+; Set the initial frame size (maximized)
+(add-to-list 'default-frame-alist '(width . 202))
+(add-to-list 'default-frame-alist '(height . 60))
+
+; OR start fullscreen
+;(set-frame-parameter nil 'fullscreen 'fullboth)
 
 ; Hide the menu, tool, and scroll bars when windowed
 (menu-bar-mode -1)
@@ -100,7 +108,7 @@
   (scroll-bar-mode -1))
 
 ; Choose among the built-in themes (pick one)
-(load-theme 'adwaita t)
+;(load-theme 'adwaita t)
 ;(load-theme 'deeper-blue t)
 ;(load-theme 'dichromacy t)
 ;(load-theme 'leuven t)
@@ -116,6 +124,7 @@
 ;(load-theme 'wombat t)
 
 ; OR choose an installed theme
+(load-theme 'ample t)
 ;(load-theme 'solarized-light t)
 ;(load-theme 'solarized-dark t)
 ;(load-theme 'anti-zenburn t)
@@ -135,8 +144,9 @@
 ; Enable line numbers (4 digits, justify right)
 (global-linum-mode t)
 (custom-set-variables '(linum-format (quote "%4d")))
+(add-hook 'term-mode-hook '(lambda () (linum-mode 0)))
 
-; Enable column numberes
+; Enable column numbers
 (column-number-mode 1)
 
 ; Disable audible and visual bells
