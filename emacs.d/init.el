@@ -59,6 +59,7 @@
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
+(add-hook 'term-mode-hook '(lambda () (turn-off-evil-mode)))
 
 ; Require company
 (add-hook 'after-init-hook 'global-company-mode)
