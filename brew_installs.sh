@@ -29,6 +29,7 @@ cmds=(\
     python      \
     sbcl        \
     screenfetch \
+    tig         \
     tmux        \
     tree        \
     w3m         \

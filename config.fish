@@ -9,6 +9,7 @@ set -gx PATH                  \
 /usr/texbin                   \
 /usr/local/bin                \
 /opt/X11/bin                  \
+/usr/local/go/bin             \
 /usr/local/android-sdk/tools  \
 /usr/local/android-ndk        \
 
