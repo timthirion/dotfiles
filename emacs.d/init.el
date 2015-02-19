@@ -2,8 +2,7 @@
 ; init.el
 ; t.a.thirion@gmail.com
 ; Started: ca. 2006
-; Updated: January 2015
-
+; Updated: February 2015
 
 ; Requirements
 (require 'cl)
@@ -23,6 +22,7 @@
     evil
     glsl-mode
     haskell-mode
+    hemisu-theme
     key-chord
     magit
     markdown-mode
@@ -93,7 +93,7 @@
 (setq focus-follows-mouse t)
 
 ; Set frame alpha
-(add-to-list 'default-frame-alist '(alpha 90 75))
+(add-to-list 'default-frame-alist '(alpha 90 90))
 
 ; Set the initial frame size (maximized)
 (add-to-list 'default-frame-alist '(width . 202))
@@ -125,7 +125,9 @@
 ;(load-theme 'wombat t)
 
 ; OR choose an installed theme
-(load-theme 'ample t)
+;(load-theme 'ample t)
+;(load-theme 'hemisu-light t)
+(load-theme 'hemisu-dark t)
 ;(load-theme 'solarized-light t)
 ;(load-theme 'solarized-dark t)
 ;(load-theme 'anti-zenburn t)
@@ -174,3 +176,28 @@
       scroll-step 1
       scroll-conservatively 10000
       scroll-preserve-screen-position 1)
+
+; ansi-term tweaks
+
+; After 'exit' in ansi-term, kill the buffer
+(defadvice term-sentinel (around my-advice-term-sentinel (proc msg))
+  (if (memq (process-status proc) '(signal exit))
+      (let ((buffer (process-buffer proc)))
+	ad-do-it
+	(kill-buffer buffer))
+    ad-do-it))
+(ad-activate 'term-sentinel)
+
+; Stop asking me which shell to use
+(defvar my-term-shell "/usr/local/bin/fish")
+(defadvice ansi-term (before force-bash)
+  (interactive (list my-term-shell)))
+(ad-activate 'ansi-term)
+
+; Use UTF-8
+(defun my-term-use-utf8 ()
+  (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
+(add-hook 'term-exec-hook 'my-term-use-utf8)
+
+; Make URLs clickable
+(add-hook 'term-mode-hook '(lambda () (goto-address-mode)))

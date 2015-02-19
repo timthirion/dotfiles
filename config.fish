@@ -58,6 +58,8 @@ function ll6; tree --dirsfirst -ChFupDaL 6 $argv; end;
 function l; l1 $argv; end
 function ll; ll1 $argv; end
 
+function emacs; /usr/local/bin/emacs $argv; end;
+
 # One letter aliases
 function a; ack $argv; end;
 function e; emacs $argv; end;
@@ -77,7 +79,7 @@ function n; ninja; end;
 function v; vim $argv; end;
 
 # Convenience scripts
-function colors; /bin/bash colors.sh; end;
+function colors; /bin/bash ~/dotfiles/colors.sh; end;
 function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
 # Show git branch status
