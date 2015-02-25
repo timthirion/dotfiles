@@ -1,16 +1,18 @@
 ; Tim Thirion
-; init.el
 ; t.a.thirion@gmail.com
 ; Started: ca. 2006
-; Updated: February 2015
 
-; Requirements
+;
+; Required packages
+;
 (require 'cl)
 
 ; Initialize packages
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
 ; Install required packages, if necessary
@@ -27,7 +29,9 @@
     magit
     markdown-mode
     paredit
+    rainbow-blocks
     rainbow-delimiters
+    rainbow-identifiers
     solarized-theme
     zenburn-theme))
 
@@ -59,7 +63,7 @@
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
-(add-hook 'term-mode-hook '(lambda () (turn-off-evil-mode)))
+(add-hook 'term-mode-hook (lambda () (turn-off-evil-mode)))
 
 ; Require company
 (add-hook 'after-init-hook 'global-company-mode)
@@ -74,23 +78,59 @@
 (add-hook 'lisp-interaction-mode-hook            #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook                      #'enable-paredit-mode)
 
-; Require rainbow delimiters
+; Require the various rainbow modes
+(require 'rainbow-blocks)
 (require 'rainbow-delimiters)
-(add-hook 'emacs-startup-hook #'rainbow-delimiters-mode)
-;(global-rainbow-delimiters-mode)
+(require 'rainbow-identifiers)
 
-; Configure everything
-
+; Configure evil in a separate file
 (add-to-list 'load-path "~/.emacs.d/config")
 (load-library "config-evil")
 
-; Start up
+;
+; General preferences
+;
+(fset 'yes-or-no-p 'y-or-n-p)
 
-; Inhibit the startup message
-(setq inhibit-startup-message t)
+(setq auto-save-default t
+      auto-save-interval 50
+      auto-save-timeout 5
+      backup-directory-alist '(( "." . "~/.emacs-backups"))
+      delete-auto-save-files t
+      focus-follows-mouse t
+      initial-scratch-message nil
+      inhibit-startup-message t
+      make-backup-files nil
+      ring-bell-function 'ignore
+      show-paren-delay 0
+      standard-indent 2
+      system-uses-terminfo nil
+      tab-always-indent 'complete)
 
-; Focus follows mouse
-(setq focus-follows-mouse t)
+(setq-default indent-tabs-mode nil)
+
+; Always scroll smoothly
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
+      mouse-wheel-progressive-speed nil
+      mouse-wheel-follow-mouse 't
+      redisplay-dont-pause t
+      scroll-margin 1
+      scroll-step 1
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
+
+; More general preferences
+(blink-cursor-mode -1)
+(column-number-mode 1)
+(global-font-lock-mode t)
+(global-linum-mode t)
+(custom-set-variables '(linum-format (quote "%4d")))
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(show-paren-mode 0)
+(tool-bar-mode -1)
+(turn-on-auto-fill)
+(set-fill-column 80)
 
 ; Set frame alpha
 (add-to-list 'default-frame-alist '(alpha 90 90))
@@ -101,12 +141,6 @@
 
 ; OR start fullscreen
 ;(set-frame-parameter nil 'fullscreen 'fullboth)
-
-; Hide the menu, tool, and scroll bars when windowed
-(menu-bar-mode -1)
-(when (window-system)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1))
 
 ; Choose among the built-in themes (pick one)
 ;(load-theme 'adwaita t)
@@ -133,51 +167,27 @@
 ;(load-theme 'anti-zenburn t)
 ;(load-theme 'zenburn t)
 
-; Text editing
+;
+; Hooks
+;
 
-; Enable syntax highlighting
-(global-font-lock-mode t)
+; On save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-; Set the standard indent to 2 instead of 4
-(setq standard-indent 2)
+; ELisp mode
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (rainbow-delimiters-mode)))
 
-; Suppress backup files
-(setq make-backup-files nil)
 
-; Enable line numbers (4 digits, justify right)
-(global-linum-mode t)
-(custom-set-variables '(linum-format (quote "%4d")))
-(add-hook 'term-mode-hook '(lambda () (linum-mode 0)))
+; Term mode
 
-; Enable column numbers
-(column-number-mode 1)
+(evil-set-initial-state 'term-mode 'emacs)
 
-; Disable audible and visual bells
-(setq ring-bell-function 'ignore)
-
-; No cursor blinking
-(blink-cursor-mode -1)
-
-; Highlight the current line
-;(global-hl-line-mode 1)
-
-; Word wrap at column 80 in all modes
-(turn-on-auto-fill)
-(set-fill-column 80)
-;(add-hook 'text-mode-hook 'turn-on-auto-fill)
-;(add-hook 'text-mode-hook '(lambda () (set-fill-column 80)))
-
-; Scroll smoothly
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
-      mouse-wheel-progressive-speed nil
-      mouse-wheel-follow-mouse 't
-      redisplay-dont-pause t
-      scroll-margin 1
-      scroll-step 1
-      scroll-conservatively 10000
-      scroll-preserve-screen-position 1)
-
-; ansi-term tweaks
+; No line numbers
+(add-hook 'term-mode-hook
+	  (lambda ()
+	    (linum-mode 0)))
 
 ; After 'exit' in ansi-term, kill the buffer
 (defadvice term-sentinel (around my-advice-term-sentinel (proc msg))
