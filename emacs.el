@@ -28,6 +28,7 @@
     key-chord
     magit
     markdown-mode
+    noctilux-theme
     paredit
     rainbow-blocks
     rainbow-delimiters
@@ -100,6 +101,7 @@
       focus-follows-mouse t
       initial-scratch-message nil
       inhibit-startup-message t
+      linum-format "%4d"
       make-backup-files nil
       ring-bell-function 'ignore
       show-paren-delay 0
@@ -124,7 +126,6 @@
 (column-number-mode 1)
 (global-font-lock-mode t)
 (global-linum-mode t)
-(custom-set-variables '(linum-format (quote "%4d")))
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (show-paren-mode 0)
@@ -161,7 +162,8 @@
 ; OR choose an installed theme
 ;(load-theme 'ample t)
 ;(load-theme 'hemisu-light t)
-(load-theme 'hemisu-dark t)
+;(load-theme 'hemisu-dark t)
+(load-theme 'noctilux t)
 ;(load-theme 'solarized-light t)
 ;(load-theme 'solarized-dark t)
 ;(load-theme 'anti-zenburn t)

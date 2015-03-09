@@ -3,11 +3,13 @@ set fish_greeting ""
 
 # Set PATH
 set -gx PATH                  \
+/usr/local/bin                \
+/usr/local/sbin               \
 /bin                          \
+/sbin                         \
 /usr/bin                      \
 /usr/sbin                     \
 /usr/texbin                   \
-/usr/local/bin                \
 /opt/X11/bin                  \
 /usr/local/go/bin             \
 /usr/local/android-sdk/tools  \
