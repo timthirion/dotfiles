@@ -30,6 +30,7 @@
     markdown-mode
     noctilux-theme
     paredit
+    racket-mode
     rainbow-blocks
     rainbow-delimiters
     rainbow-identifiers
@@ -177,26 +178,21 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ; ELisp mode
-(add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (rainbow-delimiters-mode)))
-
+(add-hook 'emacs-lisp-mode-hook (lambda () (rainbow-delimiters-mode)))
 
 ; Term mode
 
 (evil-set-initial-state 'term-mode 'emacs)
 
 ; No line numbers
-(add-hook 'term-mode-hook
-	  (lambda ()
-	    (linum-mode 0)))
+(add-hook 'term-mode-hook (lambda () (linum-mode 0)))
 
 ; After 'exit' in ansi-term, kill the buffer
 (defadvice term-sentinel (around my-advice-term-sentinel (proc msg))
   (if (memq (process-status proc) '(signal exit))
       (let ((buffer (process-buffer proc)))
-	ad-do-it
-	(kill-buffer buffer))
+  ad-do-it
+  (kill-buffer buffer))
     ad-do-it))
 (ad-activate 'term-sentinel)
 
@@ -213,3 +209,17 @@
 
 ; Make URLs clickable
 (add-hook 'term-mode-hook '(lambda () (goto-address-mode)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (racket-mode zenburn-theme solarized-theme rainbow-identifiers rainbow-delimiters rainbow-blocks paredit noctilux-theme markdown-mode magit key-chord hemisu-theme haskell-mode glsl-mode evil company cmake-font-lock anti-zenburn-theme ample-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
