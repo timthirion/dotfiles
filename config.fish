@@ -108,18 +108,17 @@ function fish_prompt
   end
 end
 
-# Useful directory variables
-set KW ~/Kitware
-set VTK ~/Kitware/VTK
-set PARAVIEW ~/Kitware/ParaView
-
-set BUILD ~/Kitware/build
-set VTK_DEBUG_BUILD         ~/Kitware/build/VTK/Debug/
-set VTK_RELEASE_BUILD       ~/Kitware/build/VTK/Release/
-set PARAVIEW_DEBUG_BUILD    ~/Kitware/build/ParaView/Debug/bin
-set PARAVIEW_RELEASE_BUILD  ~/Kitware/build/ParaView/Release/bin
-set RGG_DEBUG_BUILD         ~/Kitware/build/cmbnuclear/Debug/bin
-set RGG_RELEASE_BUILD       ~/Kitware/build/cmbnuclear/Release/bin
+# Python path
+set -gx PYTHONPATH                                \
+~/Kitware/build/VTK/Debug                         \
+~/Kitware/build/VTK/Debug/Wrapping/Python         \
+~/Kitware/build/VTK/Debug/Wrapping/Python/vtk     \
+~/Kitware/build/VTK/Debug/lib                     \
+~/Kitware/build/ParaView/Debug/lib                \
+~/Kitware/build/ParaView/Debug/lib/site-packages  \
+~/Kitware/Cinema                                  \
+~/Kitware/Cinema/cinema_python                    \
+~/Kitware/Cinema/cinema_python/cinema_python      \
 
 # Start tmux
 tmux
