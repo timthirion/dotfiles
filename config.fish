@@ -121,4 +121,4 @@ set -gx PYTHONPATH                                \
 #~/Kitware/build/VTKWeb/install/lib/python2.7/site-packages/vtk \
 
 # Start tmux
-tmux
+#tmux
