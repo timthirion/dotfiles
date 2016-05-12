@@ -4,10 +4,11 @@ set nocompatible
 set t_Co=256
 set background=dark
 syntax on
-colorscheme noctu
+colorscheme gotham256
 
-let mapleader=","
-let maplocalleader="\\"
+let mapleader="\<Space>"
+
+nnoremap <Leader>w :w<CR>
 
 " Set up ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -137,6 +138,7 @@ autocmd BufEnter *.{c,cpp,C,cc,cxx,h,hpp,hxx} call EnhancedCppSyntax()
 " Finally, conditionally set Kitware's slightly odd brace style
 if $KITWARE_STYLE == '1'
   autocmd FileType c,cpp setlocal cinoptions+={1s
+  autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4
 endif
 
 augroup END " C++

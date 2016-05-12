@@ -1,4 +1,4 @@
-;te Tim Thirion
+; Tim Thirion
 ; t.a.thirion@gmail.com
 ; Started: ca. 2006
 
@@ -54,7 +54,6 @@
 
 ; Show whitespace
 (require 'whitespace)
-
 
 ; Interactively do stuff
 (require 'ido)
@@ -133,6 +132,7 @@
       scroll-preserve-screen-position 1)
 
 ; More general preferences
+(setq mode-line-format nil)
 (blink-cursor-mode -1)
 (column-number-mode 1)
 (global-font-lock-mode t)
@@ -234,3 +234,4 @@
 
 ; Make URLs clickable
 (add-hook 'term-mode-hook '(lambda () (goto-address-mode)))
+

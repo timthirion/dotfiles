@@ -3,7 +3,6 @@ emacs.d/eshell/*
 emacs.d/evil
 emacs.d/ido.last
 
-ghc/ghci_history
-ghc/x86_64-darwin-7.6.3/*
+ghc/*
 
 vim/.netrwhist

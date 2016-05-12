@@ -36,7 +36,6 @@ switch (uname)
 end
 
 # Useful navigation functions
-function ~;     cd ~; end
 function ..;    cd ..; end
 function ...;   cd ../..; end
 function ....;  cd ../../..; end
@@ -119,6 +118,7 @@ set -gx PYTHONPATH                                \
 ~/Kitware/Cinema                                  \
 ~/Kitware/Cinema/cinema_python                    \
 ~/Kitware/Cinema/cinema_python/cinema_python      \
+#~/Kitware/build/VTKWeb/install/lib/python2.7/site-packages/vtk \
 
 # Start tmux
 tmux
