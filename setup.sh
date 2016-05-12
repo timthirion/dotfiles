@@ -5,9 +5,9 @@ if [ ! -d ~/.config ]; then
     mkdir ~/.config/fish
 fi
 
-git pull -q origin master > /dev/null
-git submodule init -q
-git submodule update -q
+#git pull -q origin master > /dev/null
+#git submodule init -q
+#git submodule update -q
 
 rm -f ~/.vimrc
 rm -f ~/.gvimrc
@@ -34,12 +34,12 @@ ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 
 git config --global core.excludesfile ~/.gitignore_global
 
-ln -s ~/dotfiles/clang_complete/* ~/dotfiles/vim/.
+#ln -s ~/dotfiles/clang_complete/* ~/dotfiles/vim/.
 
 if [[ "$(uname)" == "Darwin" ]]; then
     ln -s ~/dotfiles/tmux_darwin.conf ~/.tmux.conf
     /bin/bash ./osx
-    /bin/bash ./brew_installs.sh
+    #/bin/bash ./brew_installs.sh
     if [[ "$SHELL" != "/usr/local/bin/fish" ]]; then
         if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
             sudo sh -c "echo /usr/local/bin/fish >> /etc/shells"
@@ -52,7 +52,7 @@ elif [[ "$(uname)" == "Linux" ]]; then
         exit 1
     fi
     ln -s ~/dotfiles/tmux_linux.conf ~/.tmux.conf
-    /bin/bash ./aptget_installs.sh
+    #/bin/bash ./aptget_installs.sh
 fi
 
 rm -rf 1
