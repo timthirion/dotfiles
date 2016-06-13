@@ -103,7 +103,7 @@ autocmd!
 autocmd FileType c,cpp iabbrev #i #include
 autocmd FileType c,cpp iabbrev #d #define
 autocmd FileType c,cpp nno <buffer> <localleader>c I//<esc>
-autocmd FileType c,cpp setlocal ts=2 sts=2 sw=2
+autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4
 autocmd FileType c,cpp setlocal cindent
 autocmd FileType c,cpp setlocal cinoptions=g0
 
@@ -138,7 +138,6 @@ autocmd BufEnter *.{c,cpp,C,cc,cxx,h,hpp,hxx} call EnhancedCppSyntax()
 " Finally, conditionally set Kitware's slightly odd brace style
 if $KITWARE_STYLE == '1'
   autocmd FileType c,cpp setlocal cinoptions+={1s
-  autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4
 endif
 
 augroup END " C++
