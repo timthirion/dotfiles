@@ -45,8 +45,8 @@ set smartcase                   " ... Except when at least one capital
 " Whitespace
 set textwidth=80                " 80 character text width
 set expandtab                   " Expand tabs to spaces
-set shiftwidth=2                " Indent = two spaces
-set tabstop=2                   " Tab indent = two spaces
+set shiftwidth=4                " Indent = four spaces
+set tabstop=4                   " Tab indent = four spaces
 set smartindent                 " Indent intelligently
 set list                        " Show whitespace chars (next line)
 set listchars=tab:▸\ ,trail:·,extends:❯,precedes:❮
