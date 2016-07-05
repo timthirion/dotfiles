@@ -1,17 +1,32 @@
 set nocompatible
 
+" Enable pathogen
+execute pathogen#infect()
+
+" Always show airline & configure it
+set laststatus=2
+let g:airline_powerline_fonts = 1
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create(['mode',' ','branch'])
+    let g:airline_section_b = airline#section#create_left(['ffenc','hunks','%f'])
+    let g:airline_section_c = airline#section#create(['filetype'])
+    let g:airline_section_x = airline#section#create(['%P'])
+    let g:airline_section_y = airline#section#create(['%B'])
+    let g:airline_section_z = airline#section#create_right(['%l','%c'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+
 " Color scheme & syntax highlighting
-set t_Co=256
-set background=dark
 syntax on
-colorscheme gotham256
+set background=dark
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termcolors = 256
+colorscheme solarized
 
 let mapleader="\<Space>"
 
 nnoremap <Leader>w :w<CR>
-
-" Set up ctrlp.vim
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Basic vim options
 set backspace=indent,eol,start  " Make backspace key work good
@@ -73,10 +88,10 @@ vnoremap > >gv
 map Y y$
 
 " Easy split navigation -- vimbits.com
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
 
 " Clear all highlights after incremental search
 nnoremap <CR> :noh<CR><CR>

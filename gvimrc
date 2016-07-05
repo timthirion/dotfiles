@@ -1,7 +1,6 @@
 set vb          " Set the visual bell instead of the audible bell
-set lines=999
-set columns=999
+set fullscreen
 
-colorscheme wombat
+colorscheme solarized
 
-set guifont=Source_Code_Pro:h15
+set guifont=Source\ Code\ Pro\ for\ Powerline:h15
