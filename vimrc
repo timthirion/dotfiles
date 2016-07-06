@@ -27,6 +27,8 @@ colorscheme solarized
 let mapleader="\<Space>"
 
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>- :sp<CR>
+nnoremap <Leader>\ :vsp<CR>
 
 " Basic vim options
 set backspace=indent,eol,start  " Make backspace key work good
@@ -66,11 +68,13 @@ set smartindent                 " Indent intelligently
 set list                        " Show whitespace chars (next line)
 set listchars=tab:▸\ ,trail:·,extends:❯,precedes:❮
 
-" Hardcore mode
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
+" Use arrow keys to navigate splits
+nnoremap <left> <C-w><C-h>
+nnoremap <down> <C-w><C-j>
+nnoremap <up> <C-w><C-k>
+nnoremap <right> <C-w><C-l>
+
+" Escape is too far away
 inoremap jk <esc>
 inoremap <esc> <nop>
 cnoremap jk <esc>
@@ -87,11 +91,6 @@ vnoremap > >gv
 " Make Y behave like other capitals
 map Y y$
 
-" Easy split navigation -- vimbits.com
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
 
 " Clear all highlights after incremental search
 nnoremap <CR> :noh<CR><CR>
