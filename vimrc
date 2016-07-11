@@ -8,11 +8,12 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 function! AirlineInit()
     let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-    let g:airline_section_b = airline#section#create_left(['ffenc','hunks','%f'])
-    let g:airline_section_c = airline#section#create(['filetype'])
+    let g:airline_section_b = airline#section#create(['ffenc'])
+    let g:airline_section_c = airline#section#create(['%f'])
+    let g:airline_section_d = airline#section#create(['filetype'])
     let g:airline_section_x = airline#section#create(['%P'])
     let g:airline_section_y = airline#section#create(['%B'])
-    let g:airline_section_z = airline#section#create_right(['%l','%c'])
+    let g:airline_section_z = airline#section#create_right(['%l, %c'])
 endfunction
 autocmd VimEnter * call AirlineInit()
 
@@ -62,8 +63,8 @@ set smartcase                   " ... Except when at least one capital
 " Whitespace
 set textwidth=80                " 80 character text width
 set expandtab                   " Expand tabs to spaces
-set shiftwidth=4                " Indent = four spaces
-set tabstop=4                   " Tab indent = four spaces
+set shiftwidth=2                " Indent = two spaces
+set tabstop=2                   " Tab indent = two spaces
 set smartindent                 " Indent intelligently
 set list                        " Show whitespace chars (next line)
 set listchars=tab:▸\ ,trail:·,extends:❯,precedes:❮
@@ -117,7 +118,7 @@ autocmd!
 autocmd FileType c,cpp iabbrev #i #include
 autocmd FileType c,cpp iabbrev #d #define
 autocmd FileType c,cpp nno <buffer> <localleader>c I//<esc>
-autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4
+autocmd FileType c,cpp setlocal ts=2 sts=2 sw=2
 autocmd FileType c,cpp setlocal cindent
 autocmd FileType c,cpp setlocal cinoptions=g0
 
