@@ -6,6 +6,7 @@ execute pathogen#infect()
 " Always show airline & configure it
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 function! AirlineInit()
     let g:airline_section_a = airline#section#create(['mode',' ','branch'])
@@ -28,9 +29,27 @@ colorscheme solarized
 
 let mapleader="\<Space>"
 
+" Leader + w to write
 nnoremap <Leader>w :w<CR>
+
+" Leader +[-,\] to split panes
 nnoremap <Leader>- :sp<CR>
 nnoremap <Leader>\ :vsp<CR>
+
+" Buffer management
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>g :bn<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
 
 " Basic vim options
 set backspace=indent,eol,start  " Make backspace key work good
