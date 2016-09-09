@@ -1,5 +1,5 @@
 set vb          " Set the visual bell instead of the audible bell
-set fullscreen
+"set fullscreen
 
 colorscheme solarized
 
