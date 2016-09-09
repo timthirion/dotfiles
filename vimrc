@@ -4,20 +4,25 @@ set nocompatible
 execute pathogen#infect()
 
 " Always show airline & configure it
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-function! AirlineInit()
-    let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-    let g:airline_section_b = airline#section#create(['ffenc'])
-    let g:airline_section_c = airline#section#create(['%t'])
-    let g:airline_section_d = airline#section#create(['filetype'])
-    let g:airline_section_x = airline#section#create(['%P'])
-    let g:airline_section_y = airline#section#create(['%B'])
-    let g:airline_section_z = airline#section#create_right(['%l, %c'])
-endfunction
-autocmd VimEnter * call AirlineInit()
+if has("gui")
+  set laststatus=2
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#fnamemod = ':t'
+  function! AirlineInit()
+      let g:airline_section_a = airline#section#create(['mode',' ','branch'])
+      let g:airline_section_b = airline#section#create(['ffenc'])
+      let g:airline_section_c = airline#section#create(['%t'])
+      let g:airline_section_d = airline#section#create(['filetype'])
+      let g:airline_section_x = airline#section#create(['%P'])
+      let g:airline_section_y = airline#section#create(['%B'])
+      let g:airline_section_z = airline#section#create_right(['%l, %c'])
+  endfunction
+  autocmd VimEnter * call AirlineInit()
+endif
+
+" Copypasta correctly
+set clipboard=unnamed
 
 " Color scheme & syntax highlighting
 syntax on
@@ -29,8 +34,26 @@ colorscheme solarized
 
 let mapleader="\<Space>"
 
-" Leader + w to write
+" Open/save quickly
+nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
+
+" Copypasta in visual mode
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Jump to end of copypasta
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+" Region expanding
+vmap V <Plug>(expand_region_expand)
+vmap <C-V> <Plug>(expand_region_shrink)
 
 " Leader +[-,\] to split panes
 nnoremap <Leader>- :sp<CR>
@@ -38,6 +61,7 @@ nnoremap <Leader>\ :vsp<CR>
 
 " Buffer management
 nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>c :bd<CR>
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>g :bn<CR>
 nnoremap <Leader>1 :1b<CR>
@@ -179,7 +203,7 @@ augroup END " C++
 
 " Objective-C/C++
 autocmd FileType objc,objcpp setlocal cindent
-if $KITWARE_STYLE == '1'
+if $VTK_STYLE == '1'
   autocmd FileType objc,objcpp setlocal cinoptions+={1s
 endif
 
