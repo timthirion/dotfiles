@@ -4,11 +4,17 @@
 	editor = vim
 
 [color]
+	branch = auto
+	diff = true
+	interactive = true
 	pager = true
+	status = true
 	ui = auto
 
 [alias]
-	ln = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %cn - %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	ln = log --graph --pretty=format:'%C(yellow)%h -%C(yellow)%d%Creset %Cblue%cn%Creset %s %Cgreen(%cr)%Creset'
+	lne = log --graph --pretty=format:'%C(yellow)%h -%C(yellow)%d%Creset %Cblue%cn%Creset <%Cred%ce%Creset> %s %Cgreen(%cr)%Creset'
 	gud = "!echo YOU DIED"
+	shorty = status --short --branch
 [core]
 	excludesfile = ~/.gitignore_global
