@@ -4,16 +4,12 @@ set fish_greeting ""
 # Set PATH
 set -gx PATH                      \
 /usr/local/bin                    \
-/usr/local/sbin                   \
 /bin                              \
 /sbin                             \
 /usr/bin                          \
 /usr/sbin                         \
-/usr/texbin                       \
 /opt/X11/bin                      \
 /usr/local/go/bin                 \
-/usr/local/android-sdk/tools      \
-/usr/local/android-ndk            \
 /Applications/Racket\ v6.1.1/bin  \
 
 # Determine number of processor cores available
