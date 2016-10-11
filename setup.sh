@@ -34,6 +34,18 @@ ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 
 git config --global core.excludesfile ~/.gitignore_global
 
+# vim plugins
+rm -rf vim/bundle
+mkdir vim/bundle
+cd vim/bundle
+git clone git@github.com:ctrlpvim/ctrlp.vim
+git clone git@github.com:rust-lang/rust.vim
+git clone git@github.com:vim-airline/vim-airline
+git clone git@github.com:altercation/vim-colors-solarized
+git clone git@github.com:terryma/vim-expand-region
+git clone git@github.com:tpope/vim-fugitive
+cd ../..
+
 #ln -s ~/dotfiles/clang_complete/* ~/dotfiles/vim/.
 
 if [[ "$(uname)" == "Darwin" ]]; then
