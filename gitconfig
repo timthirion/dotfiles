@@ -15,6 +15,11 @@
 	ln = log --graph --pretty=format:'%C(yellow)%h -%C(yellow)%d%Creset %Cblue%cn%Creset %s %Cgreen(%cr)%Creset'
 	lne = log --graph --pretty=format:'%C(yellow)%h -%C(yellow)%d%Creset %Cblue%cn%Creset <%Cred%ce%Creset> %s %Cgreen(%cr)%Creset'
 	gud = "!echo YOU DIED"
+	praise = blame
+	prune = fetch --prune
 	shorty = status --short --branch
+	undo = reset --soft HEAD^
+
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = /usr/bin/vim
