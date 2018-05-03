@@ -50,7 +50,7 @@ cd ../..
 
 if [[ "$(uname)" == "Darwin" ]]; then
     ln -s ~/dotfiles/tmux_darwin.conf ~/.tmux.conf
-    /bin/bash ./osx
+    /bin/bash ./osx.sh
     if [[ "$SHELL" != "/usr/local/bin/fish" ]]; then
         if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
             sudo sh -c "echo /usr/local/bin/fish >> /etc/shells"
