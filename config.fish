@@ -74,7 +74,7 @@ function gv;
 end;
 function m; make -j $CPUS_PLUS_ONE; end;
 function n; ninja; end;
-function v; vim $argv; end;
+function v; /usr/bin/vim $argv; end;
 
 # Convenience scripts
 function colors; /bin/bash ~/dotfiles/colors.sh; end;
