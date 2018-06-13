@@ -41,10 +41,13 @@ cd vim/bundle
 git clone git@github.com:ctrlpvim/ctrlp.vim
 git clone git@github.com:rust-lang/rust.vim
 git clone git@github.com:vim-airline/vim-airline
-git clone git@github.com:altercation/vim-colors-solarized
 git clone git@github.com:terryma/vim-expand-region
 git clone git@github.com:tpope/vim-fugitive
+# themes
+git clone git@github.com:chriskempson/base16-vim
 git clone git@github.com:morhetz/gruvbox
+git clone git@github.com:NLKNguyen/papercolor-theme
+git clone git@github.com:altercation/vim-colors-solarized
 cd ../..
 
 #ln -s ~/dotfiles/clang_complete/* ~/dotfiles/vim/.

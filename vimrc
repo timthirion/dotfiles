@@ -27,10 +27,7 @@ set clipboard=unnamed
 " Color scheme & syntax highlighting
 syntax on
 set background=dark
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:solarized_termcolors = 256
-colorscheme gruvbox
+colorscheme PaperColor
 
 let mapleader="\<Space>"
 
