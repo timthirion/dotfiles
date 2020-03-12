@@ -2,15 +2,18 @@
 set fish_greeting ""
 
 # Set PATH
-set -gx PATH                      \
-/usr/local/bin                    \
-/bin                              \
-/sbin                             \
-/usr/bin                          \
-/usr/sbin                         \
-/opt/X11/bin                      \
-/usr/local/go/bin                 \
-/Applications/Racket\ v6.1.1/bin  \
+set -gx PATH                            \
+/anaconda3/bin                          \
+/usr/local/bin                          \
+/usr/local/sbin                         \
+/bin                                    \
+/sbin                                   \
+/usr/bin                                \
+/usr/sbin                               \
+/Users/tt/.fastlane/bin                 \
+/Users/tt/.cargo/bin/                   \
+
+set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
 
 # Determine number of processor cores available
 switch (uname)
@@ -23,58 +26,38 @@ switch (uname)
 end
 set CPUS_PLUS_ONE (math $CPUS + 1)
 
-# Set path to clang library (libclang.[so|dylib])
-switch (uname)
-  case Darwin
-    set -gx CLANG_LIBRARY_PATH (dirname (xcrun -find clang))/../lib
-  case Linux
-    # To do
-end
+# Aliases
+alias .. "cd .."
+alias ... "cd ../.."
+alias .... "cd ../../.."
+alias ..... "cd ../../../.."
+alias a "ack"
+alias c "bat"
+alias cat "bat"
+alias du "dust"
+alias e "emacs"
+alias emacs "/usr/local/bin/emacs"
+alias f "fzf"
+alias g "git"
+alias grep "rg"
+alias hexdump "hexyl"
+alias l "exa -l"
+alias ll "exa -la"
+alias less "bat"
+alias m "make -j $CPUS_PLUS_ONE"
+alias md "mkdir -p"
+alias n "ninja"
+alias v "/usr/bin/vim"
 
-# Useful navigation functions
-function ..;    cd ..; end
-function ...;   cd ../..; end
-function ....;  cd ../../..; end
-function .....; cd ../../../..; end
-
-function md; mkdir -p $argv; end
-
-function l1; tree --dirsfirst -ChFL 1 $argv; end;
-function l2; tree --dirsfirst -ChFL 2 $argv; end;
-function l3; tree --dirsfirst -ChFL 3 $argv; end;
-function l4; tree --dirsfirst -ChFL 4 $argv; end;
-function l5; tree --dirsfirst -ChFL 5 $argv; end;
-function l6; tree --dirsfirst -ChFL 6 $argv; end;
-
-function ll1; tree --dirsfirst -ChFupDaL 1 $argv; end;
-function ll2; tree --dirsfirst -ChFupDaL 2 $argv; end;
-function ll3; tree --dirsfirst -ChFupDaL 3 $argv; end;
-function ll4; tree --dirsfirst -ChFupDaL 4 $argv; end;
-function ll5; tree --dirsfirst -ChFupDaL 5 $argv; end;
-function ll6; tree --dirsfirst -ChFupDaL 6 $argv; end;
-
-function l; l1 $argv; end
-function ll; ll1 $argv; end
-
-function emacs; /usr/local/bin/emacs $argv; end;
-
-# One letter aliases
-function a; ack $argv; end;
-function e; emacs $argv; end;
-function f; find . -name "*$argv*"; end;
 function fg; find / -name $argv 2>/dev/null; end;
-function g; git $argv; end;
 function gv;
   switch (uname)
     case Darwin
-      mvim $argv
+      /usr/local/opt/macvim/bin/mvim $argv
     case Linux
       gvim $argv
   end;
 end;
-function m; make -j $CPUS_PLUS_ONE; end;
-function n; ninja; end;
-function v; /usr/bin/vim $argv; end;
 
 # Convenience scripts
 function colors; /bin/bash ~/dotfiles/colors.sh; end;
@@ -103,18 +86,3 @@ function fish_prompt
   end
 end
 
-# Python path
-set -gx PYTHONPATH                                \
-~/Kitware/build/VTK/Debug                         \
-~/Kitware/build/VTK/Debug/Wrapping/Python         \
-~/Kitware/build/VTK/Debug/Wrapping/Python/vtk     \
-~/Kitware/build/VTK/Debug/lib                     \
-~/Kitware/build/ParaView/Debug/lib                \
-~/Kitware/build/ParaView/Debug/lib/site-packages  \
-~/Kitware/Cinema                                  \
-~/Kitware/Cinema/cinema_python                    \
-~/Kitware/Cinema/cinema_python/cinema_python      \
-#~/Kitware/build/VTKWeb/install/lib/python2.7/site-packages/vtk \
-
-# Start tmux
-#tmux
