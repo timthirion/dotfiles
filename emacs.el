@@ -138,7 +138,7 @@
 (global-font-lock-mode t)
 (global-linum-mode t)
 (menu-bar-mode -1)
-(scroll-bar-mode -1)
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (show-paren-mode 0)
 (tool-bar-mode -1)
 (set-fill-column 80)
@@ -157,7 +157,7 @@
 (global-set-key (kbd "s-=") 'text-scale-increase)
 (global-set-key (kbd "s--") 'text-scale-decrease)
 
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-14"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro for Powerline-18"))
 
 ; OR start fullscreen
 ;(set-frame-parameter nil 'fullscreen 'fullboth)
