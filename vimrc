@@ -204,45 +204,67 @@ if $VTK_STYLE == '1'
   autocmd FileType objc,objcpp setlocal cinoptions+={1s
 endif
 
+" Go
+augroup Go
+  autocmd!
+  autocmd FileType go setlocal ts=2 sts=2 sw=2
+  autocmd FileType go setlocal noexpandtab smarttab shiftround nojoinspaces
+augroup END
+
 " Haskell
 augroup Haskell
-autocmd!
-autocmd FileType haskell setlocal ts=8 sts=4 sw=4
-autocmd FileType haskell setlocal expandtab smarttab shiftround nojoinspaces
-autocmd FileType haskell nno <buffer> <localleader>c I--<esc>
+  autocmd!
+  autocmd FileType haskell setlocal ts=8 sts=4 sw=4
+  autocmd FileType haskell setlocal expandtab smarttab shiftround nojoinspaces
+  autocmd FileType haskell nno <buffer> <localleader>c I--<esc>
 augroup END
 
 " HTML
 augroup HTML
-autocmd!
-autocmd FileType html setlocal sw=2 ts=2 nowrap
-"autocmd BufWritePre,BufRead *.html :normal gg=G
+  autocmd!
+  autocmd FileType html setlocal sw=2 ts=2 nowrap
+  "autocmd BufWritePre,BufRead *.html :normal gg=G
 augroup END
 
 " Javascript
 augroup JavaScript
-autocmd!
-autocmd FileType javascript nno <buffer> <localleader>c I//<esc>
+  autocmd!
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+  autocmd FileType javascript nno <buffer> <localleader>c I//<esc>
+augroup END
+
+" JSON
+au! BufRead,BufNewFile *json set filetype=json
+augroup JSON
+  autocmd!
+  autocmd FileType json setlocal ts=2 sts=2 sw=2
 augroup END
 
 " Makefiles
 augroup Make
-autocmd!
-autocmd FileType make setlocal noexpandtab
-autocmd FileType make nno <buffer> <localleader>c I#<esc>
+  autocmd!
+  autocmd FileType make setlocal noexpandtab
+  autocmd FileType make nno <buffer> <localleader>c I#<esc>
 augroup END
 
 " Markdown
 augroup Markdown
-autocmd!
-autocmd FileType markdown setlocal syntax=off
+  autocmd!
+  autocmd FileType markdown setlocal syntax=off
 augroup END
 
 " Python
 augroup python
-autocmd!
-autocmd FileType python setlocal ts=4 sts=4 sw=4 smarttab
-autocmd FileType python nnoremap <buffer> <localleader>c I//<esc>
+  autocmd!
+  autocmd FileType python setlocal ts=4 sts=4 sw=4 smarttab
+  autocmd FileType python nnoremap <buffer> <localleader>c I//<esc>
+augroup END
+
+" Vue
+au! BufRead,BufNewFile *vue set filetype=vue
+augroup Vue
+  autocmd!
+  autocmd FileType vue setlocal ts=2 sts=2 sw=2
 augroup END
 
 " Windows-specific settings
