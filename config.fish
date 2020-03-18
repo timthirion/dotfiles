@@ -64,6 +64,7 @@ function colors; /bin/bash ~/dotfiles/colors.sh; end;
 function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
 # Show git branch status
+set fish_color_cwd purple
 set fish_git_dirty_color red
 set fish_git_not_dirty_color green
 
