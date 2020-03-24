@@ -1,7 +1,10 @@
 [user]
 	name = "Tim Thirion"
-	email = "(none)"
+	email = "t.a.thirion@gmail.com"
 	editor = vim
+
+[includeIf "gitdir:/Users/tt/kw"]
+	path = .gitconfig_kitware
 
 [color]
 	branch = auto
