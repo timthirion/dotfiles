@@ -259,7 +259,7 @@ augroup END
 " Python
 augroup python
   autocmd!
-  autocmd FileType python setlocal ts=4 sts=4 sw=4 smarttab
+  autocmd FileType python setlocal ts=2 sts=2 sw=2 smarttab
   autocmd FileType python nnoremap <buffer> <localleader>c I//<esc>
 augroup END
 
