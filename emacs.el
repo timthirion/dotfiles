@@ -157,7 +157,8 @@
 (global-set-key (kbd "s-=") 'text-scale-increase)
 (global-set-key (kbd "s--") 'text-scale-decrease)
 
-(add-to-list 'default-frame-alist '(font . "Source Code Pro for Powerline-18"))
+;(add-to-list 'default-frame-alist '(font . "Source Code Pro for Powerline-18"))
+(add-to-list 'default-frame-alist '(font . "Space Mono for Powerline-18"))
 
 ; OR start fullscreen
 ;(set-frame-parameter nil 'fullscreen 'fullboth)
