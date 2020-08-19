@@ -24,6 +24,9 @@ endif
 " Copypasta correctly
 set clipboard=unnamed
 
+" Disable bracketed paste
+set t_BE=
+
 " Color scheme & syntax highlighting
 syntax on
 set background=dark
