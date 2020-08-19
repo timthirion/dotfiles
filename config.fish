@@ -1,6 +1,18 @@
 # No text on startup
 set fish_greeting ""
 
+# Set a fun term title
+functions -q fish_title;
+function fish_title
+  # Choose one
+  #echo "ᕙ(⇀‸↼‶)ᕗ" # Flex
+  #echo "[¬º-°]¬"  # Zombie
+  #echo 'ᕕ( ᐛ )ᕗ'  # Strut
+  #echo ''        # Apple
+  #echo 'ಠ_ಠ'      # Disapproval
+  echo ''          # Nada
+end
+
 # Set PATH
 set -gx PATH                            \
 /anaconda3/bin                          \
@@ -58,6 +70,9 @@ function gv;
       gvim $argv
   end;
 end;
+
+# Remap Ctrl+D to avoid closing the shell
+bind \cd delete-char
 
 # Convenience scripts
 function colors; /bin/bash ~/dotfiles/colors.sh; end;
