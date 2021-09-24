@@ -30,7 +30,12 @@ set t_BE=
 " Color scheme & syntax highlighting
 syntax on
 set background=dark
-colorscheme PaperColor
+colorscheme xcodedark
+
+" Use terminal background color
+hi Normal ctermbg=NONE
+hi NonText ctermbg=NONE
+hi EndOfBuffer ctermbg=NONE
 
 let mapleader="\<Space>"
 
