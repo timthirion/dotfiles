@@ -24,6 +24,7 @@ set -gx PATH                            \
 /usr/sbin                               \
 /Users/tt/.fastlane/bin                 \
 /Users/tt/.cargo/bin/                   \
+/Users/tim/Library/Android/sdk/tools
 
 set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
 
@@ -102,3 +103,5 @@ function fish_prompt
   end
 end
 
+# opam configuration
+#source /Users/tim/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
