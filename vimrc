@@ -185,20 +185,6 @@ autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4
 autocmd FileType c,cpp setlocal cindent
 autocmd FileType c,cpp setlocal cinoptions=g0
 
-" Insert include guards when creating a new header file
-function! InsertIncludeGuards()
-  let guard_name = substitute(expand("%:t"), "\\.", "_", "g")
-  let guard_name = "__" . guard_name . "__"
-  "normal! o
-  execute "normal! i#ifndef " . guard_name
-  execute "normal! o#define " . guard_name
-  normal! 3o
-  execute "normal! Go#endif // " . guard_name
-  normal! o
-  normal! 3k
-endfunc
-autocmd BufNewFile *.{h,hpp,hxx} call InsertIncludeGuards()
-
 " Better C++11 syntax highlighting
 function! EnhancedCppSyntax()
   syntax clear
@@ -213,18 +199,7 @@ function! EnhancedCppSyntax()
 endfunc
 autocmd BufEnter *.{c,cpp,C,cc,cxx,h,hpp,hxx} call EnhancedCppSyntax()
 
-" Finally, conditionally set Kitware's slightly odd brace style
-if $KITWARE_STYLE == '1'
-  autocmd FileType c,cpp setlocal cinoptions+={1s
-endif
-
 augroup END " C++
-
-" Objective-C/C++
-autocmd FileType objc,objcpp setlocal cindent
-if $VTK_STYLE == '1'
-  autocmd FileType objc,objcpp setlocal cinoptions+={1s
-endif
 
 " Go
 augroup Go
