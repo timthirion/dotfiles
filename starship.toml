@@ -1,0 +1,32 @@
+format = """
+($virtual_env) \
+$directory\
+$git_branch\
+$git_status\
+$character
+"""
+
+# Don't print a newline at the start of the prompt
+add_newline = false
+
+[character]
+success_symbol = "[λ](grey)"
+error_symbol = "[λ](bold red)"
+
+[directory]
+truncation_length = 1
+truncation_symbol = "…/"
+fish_style_pwd_dir_length = 1
+style = "white"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+format = "[$branch](blue) "
+
+[git_metrics]
+added_style = "bold blue"
+deleted_style = "bold red"
+format = '[+$added]($added_style)/[-$deleted]($deleted_style)'
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'

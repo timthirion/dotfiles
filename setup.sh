@@ -21,6 +21,7 @@ rm -rf ~/.ghc
 rm -f ~/.gitconfig
 rm -f ~/.gitconfig_kitware
 rm -f ~/.gitignore_global
+rm -f ~/.config/starship.toml
 
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/gvimrc ~/.gvimrc
@@ -33,6 +34,7 @@ ln -s ~/dotfiles/ghc ~/.ghc
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/gitconfig_kitware ~/.gitconfig_kitware
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
+ln -s ~/dotfiles/starship.toml ~/.config/starship.toml
 
 git config --global core.excludesfile ~/.gitignore_global
 
