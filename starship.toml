@@ -10,23 +10,19 @@ $character
 add_newline = false
 
 [character]
-success_symbol = "[λ](grey)"
-error_symbol = "[λ](bold red)"
+success_symbol = "[ λ](grey)"
+error_symbol = "[ λ](bold red)"
 
 [directory]
 truncation_length = 1
 truncation_symbol = "…/"
 fish_style_pwd_dir_length = 1
 style = "white"
-format = "[$path]($style)[$read_only]($read_only_style) "
+format = "[$path]($style)[$read_only]($read_only_style)"
 
 [git_branch]
-format = "[$branch](blue) "
-
-[git_metrics]
-added_style = "bold blue"
-deleted_style = "bold red"
-format = '[+$added]($added_style)/[-$deleted]($deleted_style)'
+format = "[ $branch](blue)"
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
+deleted = 'x'
+format = '[$modified](red)[$renamed](green)[$deleted](red)[$untracked](red)[$staged](green)[$stashed](red)[$ahead](green)[$behind](red)[$conflicted](red)[$diverged](red)'
