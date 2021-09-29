@@ -63,13 +63,17 @@ alias n "ninja"
 alias v "/usr/bin/vim"
 
 function fg; find / -name $argv 2>/dev/null; end;
-function gv;
-  switch (uname)
+
+# gvim
+switch (uname)
     case Darwin
-      /usr/local/opt/macvim/bin/mvim $argv
+        function gv --wraps vim
+          /usr/local/opt/macvim/bin/mvim $argv
+        end;
     case Linux
-      gvim $argv
-  end;
+        function gv --wraps vim
+        gvim $argv
+    end;
 end;
 
 # Remap Ctrl+D to avoid closing the shell
