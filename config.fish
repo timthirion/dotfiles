@@ -14,17 +14,22 @@ function fish_title
 end
 
 # Set PATH
-set -gx PATH                            \
-/anaconda3/bin                          \
-/usr/local/bin                          \
-/usr/local/sbin                         \
-/bin                                    \
-/sbin                                   \
-/usr/bin                                \
-/usr/sbin                               \
-/Users/tt/.fastlane/bin                 \
-/Users/tt/.cargo/bin/                   \
-/Users/tim/Library/Android/sdk/tools
+set -gx PATH                                 \
+/anaconda3/bin                               \
+/usr/local/bin                               \
+/usr/local/sbin                              \
+/bin                                         \
+/sbin                                        \
+/usr/bin                                     \
+/usr/sbin                                    \
+/Users/tt/.fastlane/bin                      \
+/Users/tt/.cargo/bin/                        \
+/Library/TeX/texbin/                         \
+/Users/tt/kw/Intuitive/depot_tools           \
+/Users/tt/Library/Android/sdk/platform-tools \
+/Users/tt/Library/Android/sdk/tools          \
+/usr/local/opt/qt5/bin                       \
+/Users/tt/kw/build/itk/bin
 
 set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
 

@@ -2,7 +2,6 @@ set nocompatible
 
 " Enable pathogen
 execute pathogen#infect()
-
 " Always show airline & configure it
 if has("gui")
   set laststatus=2
@@ -26,6 +25,7 @@ let s:hidden_status = 0
 function! ToggleStatusLine()
     if s:hidden_status == 0
         let s:hidden_status = 1
+
         set noshowmode noruler laststatus=0 noshowcmd
     else
         let s:hidden_status = 0
@@ -38,6 +38,13 @@ autocmd VimEnter * call ToggleStatusLine()
 let &t_SI = "\e[4 q"
 let &t_EI = "\e[2 q"
 
+" Enable autosave
+augroup autosave
+    autocmd!
+    "autocmd BufRead * if &filetype == "" | setlocal ft=text | endif
+    autocmd FileType * autocmd TextChanged,InsertLeave <buffer> if &readonly == 0 | write | endif
+augroup END
+
 " Copypasta correctly
 set clipboard=unnamed
 
@@ -46,6 +53,9 @@ set t_BE=
 
 " Color scheme & syntax highlighting
 syntax on
+set termguicolors
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
 colorscheme xcodedark
 
@@ -257,7 +267,7 @@ augroup END
 " Python
 augroup python
   autocmd!
-  autocmd FileType python setlocal ts=2 sts=2 sw=2 smarttab
+  autocmd FileType python setlocal ts=4 sts=4 sw=4 smarttab
   autocmd FileType python nnoremap <buffer> <localleader>c I//<esc>
 augroup END
 

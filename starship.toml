@@ -1,5 +1,5 @@
 format = """
-($virtual_env) \
+$python\
 $directory\
 $git_branch\
 $git_status\
@@ -26,3 +26,6 @@ format = "[ $branch](blue)"
 [git_status]
 deleted = 'x'
 format = '[$modified](red)[$renamed](green)[$deleted](red)[$untracked](red)[$staged](green)[$stashed](red)[$ahead](green)[$behind](red)[$conflicted](red)[$diverged](red)'
+
+[python]
+format = '[\($virtualenv\) ](green)'
