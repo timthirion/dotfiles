@@ -9,6 +9,9 @@ $character
 # Don't print a newline at the start of the prompt
 add_newline = false
 
+# Don't let starship timeout long running commands (milliseconds)
+command_timeout = 100000
+
 [character]
 success_symbol = "[ λ](grey)"
 error_symbol = "[ λ](bold red)"
