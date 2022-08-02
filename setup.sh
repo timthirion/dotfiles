@@ -33,6 +33,7 @@ ln -s ~/dotfiles/config.fish ~/.config/fish/config.fish
 ln -s ~/dotfiles/ghc ~/.ghc
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/gitconfig_kitware ~/.gitconfig_kitware
+ln -s ~/dotfiles/gitconfig_personal ~/.gitconfig_personal
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 ln -s ~/dotfiles/starship.toml ~/.config/starship.toml
 

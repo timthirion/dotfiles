@@ -1,9 +1,7 @@
-[user]
-	name = "Tim Thirion"
-	email = "t.a.thirion@gmail.com"
-	editor = vim
+[includeIf "gitdir:/Users/tt/src/"]
+	path = .gitconfig_personal
 
-[includeIf "gitdir:/Users/tt/kw"]
+[includeIf "gitdir:/Users/tt/kw/"]
 	path = .gitconfig_kitware
 
 [color]
