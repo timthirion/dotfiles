@@ -21,6 +21,7 @@
 	bless = blame
 	prune = fetch --prune
 	shorty = status --short --branch
+	stache = stash
 	undo = reset --soft HEAD^
 
 [core]
