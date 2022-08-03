@@ -1,64 +1,57 @@
 #!/bin/bash
 
+# Silent pushd & popd
+pushd () {
+    command pushd "$@" > /dev/null
+}
+popd () {
+    command popd "$@" > /dev/null
+}
+
 if [ ! -d ~/.config ]; then
-    mkdir ~/.config
-    mkdir ~/.config/fish
+    mkdir -p ~/.config/fish
 fi
 
-#git pull -q origin master > /dev/null
-#git submodule init -q
-#git submodule update -q
+# Set symbolic links for all dotfiles and folders
+echo "Setting symbolic links"
+ln -fhsv $(pwd)/vimrc ~/.vimrc
+ln -fhsv $(pwd)/gvimrc ~/.gvimrc
+ln -fhsv $(pwd)/vim ~/.vim
+ln -fhsv $(pwd)/emacs.el ~/.emacs.el
+ln -fhsv $(pwd)/emacs.d ~/.emacs.d
+ln -fhsv $(pwd)/zshrc ~/.zshrc
+ln -fhsv $(pwd)/config.fish ~/.config/fish/config.fish
+ln -fhsv $(pwd)/ghc ~/.ghc
+ln -fhsv $(pwd)/gitconfig ~/.gitconfig
+ln -fhsv $(pwd)/gitconfig_kitware ~/.gitconfig_kitware
+ln -fhsv $(pwd)/gitconfig_personal ~/.gitconfig_personal
+ln -fhsv $(pwd)/gitignore_global ~/.gitignore_global
+ln -fhsv $(pwd)/starship.toml ~/.config/starship.toml
 
-rm -f ~/.vimrc
-rm -f ~/.gvimrc
-rm -rf ~/.vim
-rm -f ~/.emacs.el
-rm -rf ~/.emacs.d
-rm -f ~/.zshrc
-rm -f ~/.config/fish/config.fish
-rm -f ~/.tmux.conf
-rm -rf ~/.ghc
-rm -f ~/.gitconfig
-rm -f ~/.gitconfig_kitware
-rm -f ~/.gitignore_global
-rm -f ~/.config/starship.toml
-
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/gvimrc ~/.gvimrc
-ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/emacs.el ~/.emacs.el
-ln -s ~/dotfiles/emacs.d ~/.emacs.d
-ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/config.fish ~/.config/fish/config.fish
-ln -s ~/dotfiles/ghc ~/.ghc
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
-ln -s ~/dotfiles/gitconfig_kitware ~/.gitconfig_kitware
-ln -s ~/dotfiles/gitconfig_personal ~/.gitconfig_personal
-ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
-ln -s ~/dotfiles/starship.toml ~/.config/starship.toml
-
+# Git config
 git config --global core.excludesfile ~/.gitignore_global
 
 # vim plugins
-rm -rf vim/bundle
-mkdir vim/bundle
-cd vim/bundle
-git clone git@github.com:ctrlpvim/ctrlp.vim
-git clone git@github.com:rust-lang/rust.vim
-git clone git@github.com:vim-airline/vim-airline
-git clone git@github.com:terryma/vim-expand-region
-git clone git@github.com:tpope/vim-fugitive
+echo "Checking vim plugins"
+[ ! -d vim/bundle ] && mkdir -p vim/bundle
+pushd vim/bundle
+
+[ ! -d ctrlp.vim ]            && git clone -q git@github.com:ctrlpvim/ctrlp.vim
+[ ! -d rust.vim ]             && git clone -q git@github.com:rust-lang/rust.vim
+[ ! -d vim-airline ]          && git clone -q git@github.com:vim-airline/vim-airline
+[ ! -d vim-expand-region ]    && git clone -q git@github.com:terryma/vim-expand-region
+[ ! -d vim-fugitive ]         && git clone -q git@github.com:tpope/vim-fugitive
+
 # themes
-git clone git@github.com:chriskempson/base16-vim
-git clone git@github.com:morhetz/gruvbox
-git clone git@github.com:NLKNguyen/papercolor-theme
-git clone git@github.com:altercation/vim-colors-solarized
-cd ../..
+[ ! -d base16-vim ]           && git clone -q git@github.com:chriskempson/base16-vim
+[ ! -d gruvbox ]              && git clone -q git@github.com:morhetz/gruvbox
+[ ! -d papercolor-theme ]     && git clone -q git@github.com:NLKNguyen/papercolor-theme
+[ ! -d vim-colors-solarized ] && git clone -q git@github.com:altercation/vim-colors-solarized
+popd
 
-#ln -s ~/dotfiles/clang_complete/* ~/dotfiles/vim/.
-
+echo "Setting shell"
 if [[ "$(uname)" == "Darwin" ]]; then
-    ln -s ~/dotfiles/tmux_darwin.conf ~/.tmux.conf
+    ln -fs ~/dotfiles/tmux_darwin.conf ~/.tmux.conf
     /bin/bash ./osx.sh
     if [[ "$SHELL" != "/usr/local/bin/fish" ]]; then
         if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
@@ -71,7 +64,7 @@ elif [[ "$(uname)" == "Linux" ]]; then
         echo "Run as root"
         exit 1
     fi
-    ln -s ~/dotfiles/tmux_linux.conf ~/.tmux.conf
+    ln -fs ~/dotfiles/tmux_linux.conf ~/.tmux.conf
 fi
 
-rm -rf 1
+echo "Done"
