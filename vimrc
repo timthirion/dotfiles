@@ -38,6 +38,20 @@ autocmd VimEnter * call ToggleStatusLine()
 let &t_SI = "\e[4 q"
 let &t_EI = "\e[2 q"
 
+" Backups and swap
+set swapfile
+set directory^=~/.vim/swap//
+" Protect against crashes during write
+set writebackup
+" But do not persist backup after a successful write
+set nobackup
+" Use rename-and-write-new method whenever safe
+set backupcopy=auto
+set backupdir^=~/.vim/backup//
+"Persist the undo tree for each file
+set undofile
+set undodir^=/.vim/undo//
+
 " Enable autosave
 augroup autosave
     autocmd!
@@ -111,7 +125,6 @@ nnoremap <Leader>0 :10b<CR>
 set backspace=indent,eol,start  " Make backspace key work good
 set encoding=utf-8              " Encode UTF-8 by default
 set nowrap                      " Don't wrap lines
-set noswapfile                  " Disable swap files
 set number numberwidth=4        " Enable line numbers (width four)
 set ruler                       " Show line and column number of cursor
 set scrolloff=3                 " Scroll three lines before top/bottom of view
@@ -169,7 +182,6 @@ vnoremap > >gv
 
 " Make Y behave like other capitals
 map Y y$
-
 
 " Clear all highlights after incremental search
 nnoremap <CR> :noh<CR><CR>
