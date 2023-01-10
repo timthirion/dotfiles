@@ -15,6 +15,7 @@ end
 
 # Set PATH
 set -gx PATH                                 \
+/opt/homebrew/bin                            \
 /anaconda3/bin                               \
 /usr/local/bin                               \
 /usr/local/sbin                              \
