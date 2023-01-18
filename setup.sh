@@ -41,6 +41,8 @@ pushd vim/bundle
 [ ! -d vim-airline ]          && git clone -q git@github.com:vim-airline/vim-airline
 [ ! -d vim-expand-region ]    && git clone -q git@github.com:terryma/vim-expand-region
 [ ! -d vim-fugitive ]         && git clone -q git@github.com:tpope/vim-fugitive
+[ ! -d vim-commentary ]       && git clone -q git@github.com:tpope/vim-commentary
+[ ! -d vim-surround ]         && git clone -q git@github.com:tpope/vim-surround
 
 # themes
 [ ! -d base16-vim ]           && git clone -q git@github.com:chriskempson/base16-vim
