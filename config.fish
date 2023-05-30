@@ -89,5 +89,15 @@ bind \cd delete-char
 function colors; /bin/bash ~/dotfiles/colors.sh; end;
 function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
+# Function to search for available python virtualenvs then activate the
+# selection
+function activate;
+    set env (ls ~/.venv/ | fzf)
+    set path "$HOME/.venv/$env/bin/activate.fish"
+    if test -f $path
+        source $path
+    end
+end;
+
 # Use starship for prompt config
 starship init fish | source
