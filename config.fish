@@ -66,7 +66,8 @@ alias less "bat"
 alias m "make -j $CPUS_PLUS_ONE"
 alias md "mkdir -p"
 alias n "ninja"
-alias v "/usr/bin/vim"
+#alias v "/usr/bin/vim"
+alias v "/opt/homebrew/bin/nvim"
 
 function fg; find / -name $argv 2>/dev/null; end;
 
