@@ -52,11 +52,11 @@ set undofile
 set undodir^=/.vim/undo//
 
 " Enable autosave
-augroup autosave
-    autocmd!
-    "autocmd BufRead * if &filetype == "" | setlocal ft=text | endif
-    autocmd FileType * autocmd TextChanged,InsertLeave <buffer> if &readonly == 0 | write | endif
-augroup END
+"augroup autosave
+"    autocmd!
+"    autocmd BufRead * if &filetype == "" | setlocal ft=text | endif
+"    autocmd FileType * autocmd TextChanged,InsertLeave <buffer> if &readonly == 0 | write | endif
+"augroup END
 
 " Copypasta correctly
 set clipboard=unnamed
