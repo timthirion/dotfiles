@@ -51,15 +51,21 @@ pushd vim/bundle
 [ ! -d vim-colors-solarized ] && git clone -q git@github.com:altercation/vim-colors-solarized
 popd
 
-echo "Setting shell"
 if [[ "$(uname)" == "Darwin" ]]; then
     ln -fs ~/dotfiles/tmux_darwin.conf ~/.tmux.conf
     /bin/bash ./osx.sh
-    if [[ "$SHELL" != "/opt/homebrew/bin/fish" ]]; then
-        if ! grep -Fxq "/opt/homebrew/bin/fish" /etc/shells; then
-            sudo sh -c "echo /opt/homebrew/bin/fish >> /etc/shells"
-        fi
-        chsh -s /opt/homebrew/bin/fish
+    FISH=$(which fish)
+    if [ -z "$FISH" ]; then
+      echo "Warning: fish shell not found"
+    else
+      echo "Found fish shell at $FISH"
+      if [[ "$SHELL" != "$FISH" ]]; then
+          if ! grep -Fxq "$FISH" /etc/shells; then
+              sudo sh -c "echo $FISH >> /etc/shells"
+          fi
+          echo "Setting shell to $FISH"
+          chsh -s $FISH
+      fi
     fi
 elif [[ "$(uname)" == "Linux" ]]; then
     if [[ $EUID -ne 0 ]]; then
