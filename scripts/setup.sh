@@ -14,19 +14,19 @@ fi
 
 # Set symbolic links for all dotfiles and folders
 echo "Setting symbolic links"
-ln -fhsv $(pwd)/vimrc ~/.vimrc
-ln -fhsv $(pwd)/gvimrc ~/.gvimrc
-ln -fhsv $(pwd)/vim ~/.vim
-ln -fhsv $(pwd)/emacs.el ~/.emacs.el
-ln -fhsv $(pwd)/emacs.d ~/.emacs.d
-ln -fhsv $(pwd)/zshrc ~/.zshrc
-ln -fhsv $(pwd)/config.fish ~/.config/fish/config.fish
+ln -fhsv $(pwd)/emacs/emacs.el ~/.emacs.el
+ln -fhsv $(pwd)/emacs/emacs.d ~/.emacs.d
+ln -fhsv $(pwd)/fish/config.fish ~/.config/fish/config.fish
 ln -fhsv $(pwd)/ghc ~/.ghc
-ln -fhsv $(pwd)/gitconfig ~/.gitconfig
-ln -fhsv $(pwd)/gitconfig_kitware ~/.gitconfig_kitware
-ln -fhsv $(pwd)/gitconfig_personal ~/.gitconfig_personal
-ln -fhsv $(pwd)/gitignore_global ~/.gitignore_global
-ln -fhsv $(pwd)/starship.toml ~/.config/starship.toml
+ln -fhsv $(pwd)/git/gitconfig ~/.gitconfig
+ln -fhsv $(pwd)/git/gitconfig_kitware ~/.gitconfig_kitware
+ln -fhsv $(pwd)/git/gitconfig_personal ~/.gitconfig_personal
+ln -fhsv $(pwd)/git/gitignore_global ~/.gitignore_global
+ln -fhsv $(pwd)/starship/starship.toml ~/.config/starship.toml
+ln -fhsv $(pwd)/vim/vimrc ~/.vimrc
+ln -fhsv $(pwd)/vim/gvimrc ~/.gvimrc
+ln -fhsv $(pwd)/vim ~/.vim
+ln -fhsv $(pwd)/zsh/zshrc ~/.zshrc
 
 # Git config
 git config --global core.excludesfile ~/.gitignore_global
@@ -53,7 +53,7 @@ popd
 
 if [[ "$(uname)" == "Darwin" ]]; then
     ln -fs ~/dotfiles/tmux_darwin.conf ~/.tmux.conf
-    /bin/bash ./osx.sh
+    /bin/bash ./scripts/osx.sh
     FISH=$(which fish)
     if [ -z "$FISH" ]; then
       echo "Warning: fish shell not found"

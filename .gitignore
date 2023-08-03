@@ -1,8 +1,4 @@
-emacs.d/elpa/*
-emacs.d/eshell/*
-emacs.d/evil
-emacs.d/ido.last
-emacs.d/network-security.data
+emacs/emacs.d
 
 ghc/*
 
