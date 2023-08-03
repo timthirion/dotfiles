@@ -23,7 +23,7 @@
 	undo = reset --soft HEAD^
 
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/tt/.gitignore_global
 	editor = /usr/bin/vim
 [filter "lfs"]
 	clean = git-lfs clean -- %f
