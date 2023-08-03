@@ -55,7 +55,6 @@ alias c "bat"
 alias cat "bat"
 alias du "dust"
 alias e "emacs"
-alias emacs "/usr/local/bin/emacs"
 alias f "fzf"
 alias g "git"
 alias grep "rg"
@@ -66,8 +65,8 @@ alias less "bat"
 alias m "make -j $CPUS_PLUS_ONE"
 alias md "mkdir -p"
 alias n "ninja"
-#alias v "/usr/bin/vim"
-alias v "/opt/homebrew/bin/nvim"
+alias v "nvim"
+#alias v "vim"
 
 function fg; find / -name $argv 2>/dev/null; end;
 
