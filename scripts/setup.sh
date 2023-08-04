@@ -22,6 +22,7 @@ ln -fhsv $(pwd)/git/gitconfig ~/.gitconfig
 ln -fhsv $(pwd)/git/gitconfig_kitware ~/.gitconfig_kitware
 ln -fhsv $(pwd)/git/gitconfig_personal ~/.gitconfig_personal
 ln -fhsv $(pwd)/git/gitignore_global ~/.gitignore_global
+ln -fhsv $(pwd)/nvim ~/.config/nvim
 ln -fhsv $(pwd)/starship/starship.toml ~/.config/starship.toml
 ln -fhsv $(pwd)/vim/vimrc ~/.vimrc
 ln -fhsv $(pwd)/vim/gvimrc ~/.gvimrc
