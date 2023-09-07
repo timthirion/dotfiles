@@ -123,3 +123,8 @@ starship init fish | source
 
 # opam configuration
 source /Users/tt/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+# Start in home directory
+if status is-interactive
+  cd ~
+end
