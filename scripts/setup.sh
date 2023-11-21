@@ -53,7 +53,7 @@ pushd vim/bundle
 popd
 
 if [[ "$(uname)" == "Darwin" ]]; then
-    ln -fs ~/dotfiles/tmux_darwin.conf ~/.tmux.conf
+    ln -fs $(pwd)/tmux/tmux_darwin.conf ~/.tmux.conf
     /bin/bash ./scripts/osx.sh
     FISH=$(which fish)
     if [ -z "$FISH" ]; then
