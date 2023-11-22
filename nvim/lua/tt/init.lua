@@ -1,1 +1,5 @@
-require("tt.remap")
+-- Plugins
+require("tt.lazy")
+
+-- Config
+require("tt.config")
