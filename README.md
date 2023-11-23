@@ -1,5 +1,6 @@
 `$ ./scripts/setup.sh`
 
 ![shell](screenshots/shell.png)
-![vim](screenshots/vim.png)
+![neovim dashboard](screenshots/neovim-dash.png)
+![neovim active](screenshots/neovim-active.png)
 ![colors](screenshots/colors.png)
