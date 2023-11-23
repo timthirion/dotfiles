@@ -1,7 +1,25 @@
 set nocompatible
 
-" Enable pathogen
-execute pathogen#infect()
+" Load all the plugins
+" Neovim has a different package manager, so it loads its own set.
+if !has('nvim')
+  call plug#begin('~/.vim/plugged')
+  " Functional
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'rust-lang/rust.vim'
+  Plug 'terryma/vim-expand-region'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
+  Plug 'vim-airline/vim-airline'
+  " Themes
+  Plug 'chriskempson/base16-vim'
+  Plug 'morhetz/gruvbox'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+  call plug#end()
+endif
 
 " General vim config
 runtime config/airline.vim

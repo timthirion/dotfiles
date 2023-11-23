@@ -4,5 +4,6 @@ ghc/*
 
 vim/.netrwhist
 vim/bundle
+vim/plugged
 vim/swap
 
