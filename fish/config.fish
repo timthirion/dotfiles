@@ -24,13 +24,9 @@ set -gx PATH                                 \
 /usr/bin                                     \
 /usr/sbin                                    \
 /Users/tt/.fastlane/bin                      \
-/Users/tt/.cargo/bin/                        \
-/Library/TeX/texbin/                         \
-/Users/tt/kw/Intuitive/depot_tools           \
-/Users/tt/Library/Android/sdk/platform-tools \
-/Users/tt/Library/Android/sdk/tools          \
+/Users/tt/.cargo/bin                         \
+/Library/TeX/texbin                          \
 /usr/local/opt/qt5/bin                       \
-/Users/tt/kw/build/itk/bin
 
 set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
 
