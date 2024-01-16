@@ -30,6 +30,11 @@ set -gx PATH                                 \
 
 set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
 
+# Ruby
+source (brew --prefix)/Cellar/chruby-fish/1.0.0/share/fish/vendor_functions.d/chruby.fish
+source (brew --prefix)/Cellar/chruby-fish/1.0.0/share/fish/vendor_conf.d/chruby_auto.fish
+chruby ruby-3.1.3
+
 # Determine number of processor cores available
 switch (uname)
   case Darwin
