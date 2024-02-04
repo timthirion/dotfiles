@@ -1,9 +1,17 @@
+.config/.gsd-keyboard.settings-ported
 .config/alacritty/alacritty.toml
-
 .config/dconf
+.config/evolution
 .config/fish/fish_variables
+.config/gnome-initial-setup-done
 .config/google-chrome
+.config/gtk-3.0
+.config/ibus
 .config/iterm2
+.config/mimeapps.list
+.config/pulse
+.config/user-dirs.dirs
+.config/user-dirs.locale
 
 .emacs/emacs.d
 
