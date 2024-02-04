@@ -1,9 +1,12 @@
-emacs/emacs.d
+.config/dconf
+.config/fish/fish_variables
+.config/google-chrome
+.config/iterm2
 
-ghc/*
+.emacs/emacs.d
 
-vim/.netrwhist
-vim/bundle
-vim/plugged
-vim/swap
+.vim/.netrwhist
+.vim/bundle
+.vim/plugged
+.vim/swap
 
