@@ -1,5 +1,5 @@
 [submodule "vim/third-party/vim-plug"]
-	path = vim/third-party/vim-plug
+	path = .vim/third-party/vim-plug
 	url = git@github.com:junegunn/vim-plug
 [submodule ".config/alacritty/catppuccin"]
 	path = .config/alacritty/catppuccin
