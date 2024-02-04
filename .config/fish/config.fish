@@ -14,37 +14,28 @@ function fish_title
 end
 
 # Set PATH
-set -gx PATH                                 \
-/opt/homebrew/bin                            \
-/anaconda3/bin                               \
-/usr/local/bin                               \
-/usr/local/sbin                              \
-/bin                                         \
-/sbin                                        \
-/usr/bin                                     \
-/usr/sbin                                    \
-/Users/tt/.fastlane/bin                      \
-/Users/tt/.cargo/bin                         \
-/Library/TeX/texbin                          \
-/usr/local/opt/qt5/bin                       \
+set -gx PATH           \
+/opt/homebrew/bin      \
+/anaconda3/bin         \
+/usr/local/bin         \
+/usr/local/sbin        \
+/bin                   \
+/sbin                  \
+/usr/bin               \
+/usr/sbin              \
+$HOME/.cargo/bin       \
+/Library/TeX/texbin    \
+/usr/local/opt/qt5/bin \
 
 set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
 
-# Ruby
-source (brew --prefix)/Cellar/chruby-fish/1.0.0/share/fish/vendor_functions.d/chruby.fish
-source (brew --prefix)/Cellar/chruby-fish/1.0.0/share/fish/vendor_conf.d/chruby_auto.fish
-chruby ruby-3.1.3
-
-# Determine number of processor cores available
+# Ruby (macOS only)
 switch (uname)
   case Darwin
-    set CPUS (sysctl -n hw.ncpu)
-  case Linux
-    set CPUS (cat /proc/cpuinfo | grep processor | wc -l)
-    set CORES_PER_CPU (cat /proc/cpuinfo | grep cores | head -1 | awk '{print $4}')
-    set TOTAL_CORES (echo "$PROCESSORS * $CORES_PER_PROCESSOR" | bc -l)
+    source (brew --prefix)/Cellar/chruby-fish/1.0.0/share/fish/vendor_functions.d/chruby.fish
+    source (brew --prefix)/Cellar/chruby-fish/1.0.0/share/fish/vendor_conf.d/chruby_auto.fish
+    chruby ruby-3.1.3
 end
-set CPUS_PLUS_ONE (math $CPUS + 1)
 
 # Aliases
 alias .. "cd .."
@@ -123,7 +114,7 @@ end;
 starship init fish | source
 
 # opam configuration
-source /Users/tt/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # Start in home directory
 if status is-interactive
