@@ -31,14 +31,18 @@ style = "Regular"
 
 [font.offset]
 x = 0
-y = -14
+y = -10
 
 [window]
-decorations = "buttonless"
+decorations = "Full"
 dynamic_padding = false
 opacity = 1.0
-startup_mode = "Maximized"
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 80
+lines = 30
 
 [window.padding]
-x = 12
-y = 12
+x = 10
+y = 10

@@ -1,3 +1,5 @@
+.config/alacritty/alacritty.toml
+
 .config/dconf
 .config/fish/fish_variables
 .config/google-chrome
