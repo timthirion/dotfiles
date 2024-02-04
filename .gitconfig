@@ -1,7 +1,7 @@
-[includeIf "gitdir:/Users/tt/src/"]
+[include]
 	path = .gitconfig_personal
 
-[includeIf "gitdir:/Users/tt/kw/"]
+[includeIf "gitdir:~/kw/"]
 	path = .gitconfig_kitware
 
 [color]
