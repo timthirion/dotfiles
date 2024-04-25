@@ -12,7 +12,22 @@
 	status = true
 	ui = auto
 
+[diff]
+  external = difft
+	tool = difftastic
+
+[difftool]
+	prompt = false
+
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+	difftool = true
+
 [alias]
+	dft = difftool
+	dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 	ln = log --graph --pretty=format:'%C(yellow)%h -%C(yellow)%d%Creset %Cblue%cn%Creset %s %Cgreen(%cr)%Creset'
 	lne = log --graph --pretty=format:'%C(yellow)%h -%C(yellow)%d%Creset %Cblue%cn%Creset <%Cred%ce%Creset> %s %Cgreen(%cr)%Creset'
 	gud = "!echo YOU DIED"
