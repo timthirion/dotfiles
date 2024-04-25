@@ -15,14 +15,15 @@ end
 
 # Set PATH
 set -gx PATH           \
+$HOME/.pyenv/shims     \
 /opt/homebrew/bin      \
-/anaconda3/bin         \
 /usr/local/bin         \
 /usr/local/sbin        \
 /bin                   \
 /sbin                  \
 /usr/bin               \
 /usr/sbin              \
+/Users/tt/.local/bin   \
 $HOME/.cargo/bin       \
 /Library/TeX/texbin    \
 /usr/local/opt/qt5/bin \
