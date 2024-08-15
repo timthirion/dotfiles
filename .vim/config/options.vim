@@ -27,7 +27,7 @@ set ignorecase                  " Ignore case when searching
 set smartcase                   " ... Except when at least one capital
 
 " Whitespace
-set textwidth=80                " 80 character text width
+set textwidth=120               " 120 character text width
 set expandtab                   " Expand tabs to spaces
 set shiftwidth=2                " Indent = two spaces
 set tabstop=2                   " Tab indent = two spaces
