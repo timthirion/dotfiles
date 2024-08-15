@@ -14,19 +14,21 @@ function fish_title
 end
 
 # Set PATH
-set -gx PATH           \
-$HOME/.pyenv/shims     \
-/opt/homebrew/bin      \
-/usr/local/bin         \
-/usr/local/sbin        \
-/bin                   \
-/sbin                  \
-/usr/bin               \
-/usr/sbin              \
-/Users/tt/.local/bin   \
-$HOME/.cargo/bin       \
-/Library/TeX/texbin    \
-/usr/local/opt/qt5/bin \
+set -gx PATH                    \
+$HOME/.pyenv/shims              \
+/opt/homebrew/bin               \
+/usr/local/bin                  \
+/usr/local/sbin                 \
+/bin                            \
+/sbin                           \
+/usr/bin                        \
+/usr/sbin                       \
+/Users/tt/.local/bin            \
+$HOME/.cargo/bin                \
+/Library/TeX/texbin             \
+/usr/local/opt/qt5/bin          \
+/opt/homebrew/opt/node@20/bin   \
+/Users/tt/google-cloud-sdk/bin  \
 
 set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
 
