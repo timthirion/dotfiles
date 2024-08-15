@@ -12,7 +12,10 @@ wezterm.on('gui-startup', function(cmd)
 end)
 
 -- Font
-config.font = wezterm.font({ family = 'SpaceMono Nerd Font' })
+config.font = wezterm.font({
+  family = 'SpaceMono Nerd Font',
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+})
 config.font_size = 20
 config.line_height = 0.8
 
