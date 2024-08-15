@@ -80,20 +80,4 @@ PROMPT="
 %{$reset_color%}%# "
 #RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 
-#
-# Platform-specific initialization
-#
-case $(uname) in
-    Darwin)
-        [[ -z "$TMUX" ]] && exec tmux
-    ;;
-    Linux)
-        [[ -z "$TMUX" ]] && exec tmux
-    ;;
-    *)
-        export DESKTOP=/cygdrive/c/users/tthirion/desktop/
-        export WRAP=/cygdrive/c/wrap/geosource/
-        export PEGASUS=/cygdrive/c/wrap/v2014/distributionVS2010/Pegasus/x64/Debug/
-        export SCRATCH=/cygdrive/s/
-    ;;
-esac
+
