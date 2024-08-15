@@ -1,8 +1,10 @@
 .config/.gsd-keyboard.settings-ported
 .config/alacritty/alacritty.toml
+.config/configstore
 .config/dconf
 .config/evolution
 .config/fish/fish_variables
+.config/gcloud
 .config/gnome-initial-setup-done
 .config/google-chrome
 .config/gtk-3.0
@@ -10,6 +12,7 @@
 .config/iterm2
 .config/mimeapps.list
 .config/pulse
+.config/PureRef
 .config/user-dirs.dirs
 .config/user-dirs.locale
 
