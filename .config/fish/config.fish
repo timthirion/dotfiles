@@ -17,6 +17,7 @@ end
 set -gx PATH                    \
 $HOME/.pyenv/shims              \
 /opt/homebrew/bin               \
+/opt/homebrew/sbin              \
 /usr/local/bin                  \
 /usr/local/sbin                 \
 /bin                            \
@@ -30,7 +31,12 @@ $HOME/.cargo/bin                \
 /opt/homebrew/opt/node@20/bin   \
 /Users/tt/google-cloud-sdk/bin  \
 
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
 set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
+
+# Gcloud key locations
+set -gx GOOGLE_APPLICATION_CREDENTIALS_PRODUCTION $HOME/polycam/keys/tim-dev-prod.json
+set -gx GOOGLE_APPLICATION_CREDENTIALS_STAGING $HOME/polycam/keys/tim-dev-staging.json
 
 # Ruby (macOS only)
 #switch (uname)
@@ -61,6 +67,7 @@ alias less "bat"
 alias m "make -j $CPUS_PLUS_ONE"
 alias md "mkdir -p"
 alias n "ninja"
+alias uuid "uuidgen"
 alias v "nvim"
 #alias v "vim"
 
@@ -82,7 +89,7 @@ end;
 bind \cd delete-char
 
 # Convenience scripts
-function colors; /bin/bash ~/dotfiles/colors.sh; end;
+function colors; /bin/bash ~/dotfiles/.scripts/colors.sh; end;
 function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
 # Function to search for available python virtualenvs then activate the
