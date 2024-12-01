@@ -1,3 +1,6 @@
+.ackrc
+imgui.ini
+
 # compiled source
 *.com
 *.class
