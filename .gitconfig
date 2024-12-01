@@ -1,8 +1,8 @@
 [include]
 	path = .gitconfig_personal
 
-[includeIf "gitdir:~/kw/"]
-	path = .gitconfig_kitware
+[includeIf "gitdir:~/polycam/"]
+	path = .gitconfig_polycam
 
 [color]
 	branch = auto
