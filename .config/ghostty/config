@@ -1,0 +1,22 @@
+# Shrink line height by 20%
+adjust-cell-height = -20%
+
+# Colors
+background = #1e1e2e
+
+# Font
+font-family = "SpaceMono Nerd Font"
+font-feature = -liga
+font-size = 20
+font-thicken = true
+
+# macOS specific
+macos-titlebar-style = tabs
+
+# Setting the window size to very large will fill the screen in each dimension
+window-width = 10000
+window-height = 10000
+
+# Internal padding
+window-padding-x = 12
+window-padding-y = 12
