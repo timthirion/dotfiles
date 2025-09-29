@@ -13,6 +13,9 @@ font-thicken = true
 # macOS specific
 macos-titlebar-style = tabs
 
+# Theme
+theme = catppuccin-mocha.conf
+
 # Setting the window size to very large will fill the screen in each dimension
 window-width = 10000
 window-height = 10000
