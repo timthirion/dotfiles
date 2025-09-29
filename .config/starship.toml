@@ -30,5 +30,7 @@ format = "[ $branch](blue)"
 deleted = 'x'
 format = '[$modified](red)[$renamed](green)[$deleted](red)[$untracked](red)[$staged](green)[$stashed](red)[$ahead](green)[$behind](red)[$conflicted](red)[$diverged](red)'
 
+# Don't show anything about python virtual envs for now
 [python]
-format = '[\($virtualenv\) ](green)'
+format = ''
+#format = '[\($virtualenv\) ](green)'
