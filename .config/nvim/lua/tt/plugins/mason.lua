@@ -1,0 +1,34 @@
+return {
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup({
+        ui = {
+          border = "rounded",
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+          }
+        }
+      })
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "mason.nvim" },
+    config = function()
+      require("mason-lspconfig").setup({
+        -- Only install language servers for tools you have installed
+        ensure_installed = {
+          "lua_ls",        -- Lua (always available in Neovim)
+          "pyright",       -- Python (you have Python via pyenv)
+          "tsserver",      -- TypeScript/JavaScript (you have Node.js)
+          "clangd",        -- C/C++ (system compiler available)
+          "rust_analyzer", -- Rust
+        },
+        automatic_installation = false, -- Don't auto-install to avoid errors
+      })
+    end,
+  },
+}
