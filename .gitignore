@@ -6,6 +6,7 @@
 .config/dconf
 .config/evolution
 .config/fish/fish_variables
+.config/fish/ddo_config.fish
 .config/gcloud
 .config/gnome-initial-setup-done
 .config/google-chrome
