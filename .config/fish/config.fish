@@ -84,7 +84,7 @@ end;
 bind \cd delete-char
 
 # Convenience scripts
-function colors; /bin/bash ~/dotfiles/.scripts/colors.sh; end;
+function colors; /bin/bash $HOME/dotfiles/.scripts/colors.sh; end;
 function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
 
 # Function to search for available python virtualenvs then activate the
