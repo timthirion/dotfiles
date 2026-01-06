@@ -24,15 +24,12 @@ $HOME/.pyenv/shims              \
 /sbin                           \
 /usr/bin                        \
 /usr/sbin                       \
-/Users/tt/.local/bin            \
+$HOME/.local/bin                \
 $HOME/.cargo/bin                \
 /Library/TeX/texbin             \
-/usr/local/opt/qt5/bin          \
-/opt/homebrew/opt/node@20/bin   \
-/Users/tt/google-cloud-sdk/bin  \
+$HOME/google-cloud-sdk/bin      \
 
 set -gx ANDROID_HOME $HOME/Library/Android/sdk
-set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
 
 # Gcloud key locations
 set -gx GOOGLE_APPLICATION_CREDENTIALS_PRODUCTION $HOME/polycam/keys/tim-dev-prod.json
