@@ -1,0 +1,10 @@
+# DigitalOcean Spaces configuration for ddo function
+# Copy this file to ddo_config.fish and fill in your actual credentials
+
+# DigitalOcean Spaces credentials
+set -gx DO_ACCESS_KEY "your_access_key_here"
+set -gx DO_SECRET_KEY "your_secret_key_here"
+
+# DigitalOcean Spaces configuration
+set -gx DO_SPACE_NAME "your_space_name"
+set -gx DO_REGION "nyc3"  # e.g., nyc3, sfo3, ams3, sgp1, fra1
