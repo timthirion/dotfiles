@@ -38,13 +38,8 @@ set -gx Qt5_DIR /usr/local/Cellar/qt/5.12.3
 set -gx GOOGLE_APPLICATION_CREDENTIALS_PRODUCTION $HOME/polycam/keys/tim-dev-prod.json
 set -gx GOOGLE_APPLICATION_CREDENTIALS_STAGING $HOME/polycam/keys/tim-dev-staging.json
 
-# Ruby (macOS only)
-#switch (uname)
-#  case Darwin
-#    source (brew --prefix)/Cellar/chruby-fish/1.0.0/share/fish/vendor_functions.d/chruby.fish
-#    source (brew --prefix)/Cellar/chruby-fish/1.0.0/share/fish/vendor_conf.d/chruby_auto.fish
-#    chruby ruby-3.1.3
-#end
+# Ruby
+status --is-interactive; and rbenv init - fish | source
 
 # Aliases
 alias .. "cd .."
