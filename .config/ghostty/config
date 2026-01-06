@@ -6,12 +6,9 @@ background = #1e1e2e
 
 # Font
 font-family = "SpaceMono Nerd Font"
-font-feature = -liga
+font-feature = -calt
 font-size = 20
 font-thicken = true
-
-# macOS specific
-macos-titlebar-style = tabs
 
 # Set initial window to maximized
 maximize = true
@@ -22,3 +19,8 @@ theme = catppuccin-mocha.conf
 # Internal padding
 window-padding-x = 12
 window-padding-y = 12
+
+# macOS specific
+macos-titlebar-style = tabs
+window-show-tab-bar = always
+keybind = shift+enter=text:\n
