@@ -63,55 +63,8 @@ alias uuid "uuidgen"
 alias v "nvim"
 #alias v "vim"
 
-function fg; find / -name $argv 2>/dev/null; end;
-
-# gvim
-switch (uname)
-    case Darwin
-        function gv --wraps vim
-          /usr/local/opt/macvim/bin/mvim $argv
-        end;
-    case Linux
-        function gv --wraps vim
-        gvim $argv
-    end;
-end;
-
 # Remap Ctrl+D to avoid closing the shell
 bind \cd delete-char
-
-# Convenience scripts
-function colors; /bin/bash $HOME/dotfiles/.scripts/colors.sh; end;
-function rot13; tr "a-zA-Z" "n-za-mN-ZA-M" $argv; end;
-
-# Function to search for available python virtualenvs then activate the
-# selection
-function activate;
-    set env (ls ~/.venv/ | fzf)
-    set path "$HOME/.venv/$env/bin/activate.fish"
-    if test -f $path
-        source $path
-    end
-end;
-
-# Function to list all git branches then delete the selected branch
-function trim;
-    set repo_exists (git rev-parse --is-inside-work-tree 2>/dev/null)
-    if test "$repo_exists" != "true"
-        echo "No git repostiory found in current directory"
-        return
-    end
-    set branch_count (git branch | grep --invert-match '\*' | count)
-    if test $branch_count -eq 0
-        echo "Only current branch exists"
-        return
-    end
-    set empty (git branch |
-                grep --invert-match '\*' |
-                cut -c 3- |
-                fzf --multi --preview="git log {} --" |
-                xargs git branch --delete --force)
-end;
 
 # Use starship for prompt config
 starship init fish | source
