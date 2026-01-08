@@ -18,6 +18,7 @@ set -gx PATH                    \
 $HOME/.pyenv/shims              \
 /opt/homebrew/bin               \
 /opt/homebrew/sbin              \
+/opt/homebrew/opt/node@20/bin   \
 /usr/local/bin                  \
 /usr/local/sbin                 \
 /bin                            \
