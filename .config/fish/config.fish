@@ -93,8 +93,8 @@ if status is-interactive
   cd ~
 
   # Symlink machine-specific configs based on hostname
-  set -l hostname (hostname -s)
-  switch $hostname
+  set -l host (hostname -s)
+  switch $host
     case "tt-mini"
       ln -sf ~/.config/ghostty/config.desktop ~/.config/ghostty/config.local
     case "tt-macbook"
