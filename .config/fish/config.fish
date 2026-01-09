@@ -14,9 +14,16 @@ function fish_title
   #echo (status current-command) $PWD
   # $argv contains the command when running, empty at prompt
   if test -n "$argv"
-    echo $argv
+    echo $argv (string replace $HOME '~' $PWD)
   else
     echo (prompt_pwd)
+  end
+end
+
+# Set tmux window name to the command being run (can't be overridden by apps)
+function fish_preexec --on-event fish_preexec
+  if set -q TMUX
+    tmux rename-window "$argv[1]"
   end
 end
 
