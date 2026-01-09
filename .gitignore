@@ -22,6 +22,7 @@
 .config/user-dirs.dirs
 .config/user-dirs.locale
 .config/uv
+.config/ghostty/config.local
 
 .emacs/emacs.d
 

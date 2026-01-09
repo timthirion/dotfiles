@@ -7,7 +7,7 @@ background = #1e1e2e
 # Font
 font-family = "SpaceMono Nerd Font"
 font-feature = -calt
-font-size = 20
+font-size = 18
 font-thicken = true
 
 # Set initial window to maximized
@@ -34,3 +34,6 @@ focus-follows-mouse = true
 macos-titlebar-style = tabs
 window-show-tab-bar = always
 keybind = shift+enter=text:\n
+
+# Machine-specific overrides (symlinked by fish config)
+config-file = config.local

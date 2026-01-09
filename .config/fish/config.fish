@@ -91,6 +91,15 @@ source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 # Start in home directory
 if status is-interactive
   cd ~
+
+  # Symlink machine-specific configs based on hostname
+  set -l hostname (hostname -s)
+  switch $hostname
+    case "tt-mini"
+      ln -sf ~/.config/ghostty/config.desktop ~/.config/ghostty/config.local
+    case "tt-macbook"
+      ln -sf ~/.config/ghostty/config.laptop ~/.config/ghostty/config.local
+  end
 end
 
 fzf --fish | source
