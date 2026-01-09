@@ -16,6 +16,9 @@ maximize = true
 # Theme
 theme = catppuccin-mocha.conf
 
+# Disable bold and italic formatting
+bold-is-bright = false
+
 # Internal padding
 window-padding-x = 12
 window-padding-y = 12

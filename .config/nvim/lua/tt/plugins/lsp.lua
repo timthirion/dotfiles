@@ -24,11 +24,11 @@ return {
         vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
       end
 
-      -- Configure diagnostics
+      -- Configure diagnostics (disabled by default)
       vim.diagnostic.config({
-        virtual_text = true,
-        signs = true,
-        underline = true,
+        virtual_text = false,
+        signs = false,
+        underline = false,
         update_in_insert = false,
         severity_sort = true,
         float = {
@@ -75,7 +75,7 @@ return {
         if has_cmp then
           capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
         end
-        
+
         vim.lsp.config[server] = {
           cmd = config.cmd or { server },
           settings = config.settings,
