@@ -71,7 +71,6 @@ alias md "mkdir -p"
 alias n "ninja"
 alias uuid "uuidgen"
 alias v "nvim"
-#alias v "vim"
 
 # Remap Ctrl+D to avoid closing the shell
 bind \cd delete-char
@@ -88,3 +87,6 @@ if status is-interactive
 end
 
 fzf --fish | source
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/polycam/google-cloud-sdk/path.fish.inc" ]; . "$HOME/polycam/google-cloud-sdk/path.fish.inc"; end
