@@ -86,11 +86,8 @@ starship init fish | source
 # opam configuration
 source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
-# Start in home directory
+# Symlink machine-specific configs based on hostname
 if status is-interactive
-  cd ~
-
-  # Symlink machine-specific configs based on hostname
   set -l host (hostname -s)
   switch $host
     case "tt-mini"
