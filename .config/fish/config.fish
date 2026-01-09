@@ -23,12 +23,6 @@ function fish_title
   end
 end
 
-# Set tmux window name to the command being run (can't be overridden by apps)
-function fish_preexec --on-event fish_preexec
-  if set -q TMUX
-    tmux rename-window "$argv[1] "(prompt_pwd)
-  end
-end
 
 # Set PATH
 set -gx PATH                    \
