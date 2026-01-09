@@ -23,7 +23,7 @@ return {
         ensure_installed = {
           "lua_ls",        -- Lua (always available in Neovim)
           "pyright",       -- Python (you have Python via pyenv)
-          "tsserver",      -- TypeScript/JavaScript (you have Node.js)
+          "ts_ls",         -- TypeScript/JavaScript (you have Node.js)
           "clangd",        -- C/C++ (system compiler available)
           "rust_analyzer", -- Rust
         },

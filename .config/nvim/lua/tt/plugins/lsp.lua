@@ -55,7 +55,7 @@ return {
           },
         },
         pyright = {},
-        tsserver = {},
+        ts_ls = {},
         clangd = {},
         rust_analyzer = {
           settings = {
