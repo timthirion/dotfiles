@@ -37,6 +37,8 @@ $HOME/.cargo/bin                \
 /Library/TeX/texbin             \
 $HOME/google-cloud-sdk/bin      \
 
+source "$HOME/.cargo/env.fish"
+
 set -gx ANDROID_HOME $HOME/Library/Android/sdk
 
 # Gcloud key locations
