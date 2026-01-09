@@ -1,6 +1,9 @@
 # No text on startup
 set fish_greeting ""
 
+# Let fish control terminal titles, not Claude
+set -gx CLAUDE_CODE_DISABLE_TERMINAL_TITLE 1
+
 # Set a fun term title
 functions -q fish_title;
 function fish_title
