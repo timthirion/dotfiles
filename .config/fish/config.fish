@@ -10,7 +10,14 @@ function fish_title
   #echo 'ᕕ( ᐛ )ᕗ'  # Strut
   #echo ''        # Apple
   #echo 'ಠ_ಠ'      # Disapproval
-  echo ''          # Nada
+  #echo ''          # Nada
+  #echo (status current-command) $PWD
+  # $argv contains the command when running, empty at prompt
+  if test -n "$argv"
+    echo $argv
+  else
+    echo (prompt_pwd)
+  end
 end
 
 # Set PATH
