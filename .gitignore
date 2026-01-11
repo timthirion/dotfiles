@@ -4,6 +4,7 @@
 .claude/
 
 .config/.gsd-keyboard.settings-ported
+.config/blender
 .config/alacritty/alacritty.toml
 .config/configstore
 .config/dconf
@@ -17,9 +18,13 @@
 .config/gtk-3.0
 .config/ibus
 .config/iterm2
+.config/JetBrains
+.config/menus
 .config/mimeapps.list
+.config/monitors.xml
 .config/pulse
 .config/PureRef
+.config/systemd
 .config/user-dirs.dirs
 .config/user-dirs.locale
 .config/uv

@@ -28,6 +28,7 @@ return {
           "rust_analyzer", -- Rust
         },
         automatic_installation = false, -- Don't auto-install to avoid errors
+        automatic_enable = false, -- Disable for Nvim 0.10 compatibility (uses vim.lsp.enable which requires 0.11+)
       })
     end,
   },

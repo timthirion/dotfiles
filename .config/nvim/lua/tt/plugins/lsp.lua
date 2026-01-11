@@ -5,6 +5,15 @@ return {
       "mason.nvim",
       "mason-lspconfig.nvim",
     },
+    init = function()
+      -- Suppress nvim-lspconfig deprecation warning for Nvim 0.10
+      local orig_deprecate = vim.deprecate
+      vim.deprecate = function(name, alternative, version, plugin, backtrace)
+        if plugin ~= "nvim-lspconfig" then
+          orig_deprecate(name, alternative, version, plugin, backtrace)
+        end
+      end
+    end,
     config = function()
       -- Global LSP settings
       local on_attach = function(client, bufnr)
@@ -67,21 +76,21 @@ return {
         },
       }
 
-      -- Setup each server using new vim.lsp.config API
-      for server, config in pairs(servers) do
-        -- Get completion capabilities from nvim-cmp
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-        if has_cmp then
-          capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-        end
+      -- Get completion capabilities from nvim-cmp
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+      if has_cmp then
+        capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+      end
 
-        vim.lsp.config[server] = {
-          cmd = config.cmd or { server },
+      -- Setup each server using lspconfig (compatible with Nvim 0.10)
+      local lspconfig = require("lspconfig")
+      for server, config in pairs(servers) do
+        lspconfig[server].setup({
           settings = config.settings,
           on_attach = on_attach,
           capabilities = capabilities,
-        }
+        })
       end
     end,
   },
