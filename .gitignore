@@ -8,6 +8,7 @@
 .config/configstore
 .config/dconf
 .config/evolution
+.config/fish/conf.d
 .config/fish/fish_variables
 .config/fish/ddo_config.fish
 .config/gcloud
