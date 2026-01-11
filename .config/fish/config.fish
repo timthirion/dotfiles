@@ -26,6 +26,7 @@ end
 
 # Set PATH
 set -gx PATH                    \
+$HOME/.fzf/bin                  \
 $HOME/.pyenv/shims              \
 /opt/homebrew/bin               \
 /opt/homebrew/sbin              \

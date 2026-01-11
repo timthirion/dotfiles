@@ -1,0 +1,13 @@
+#!/bin/sh
+# Wrapper for difft that falls back to standard diff if difft isn't installed
+if command -v difft >/dev/null 2>&1; then
+    exec difft "$@"
+else
+    # Fall back to git's built-in diff
+    # When used as GIT_EXTERNAL_DIFF, args are: path old-file old-hex old-mode new-file new-hex new-mode
+    if [ $# -ge 5 ]; then
+        diff -u "$2" "$5"
+    else
+        diff -u "$@"
+    fi
+fi
