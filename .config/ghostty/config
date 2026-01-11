@@ -7,7 +7,6 @@ background = #1e1e2e
 # Font
 font-family = "SpaceMono Nerd Font"
 font-feature = -calt
-font-size = 18
 font-thicken = true
 
 # Set initial window to maximized
