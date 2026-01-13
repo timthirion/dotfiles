@@ -1,0 +1,15 @@
+# Linux-specific settings
+# Loaded via config.local symlink on Linux machines
+
+# Font size
+font-size = 20
+
+# Window padding
+window-padding-x = 10
+window-padding-y = 10
+
+# Start windowed, not maximized
+maximize = false
+
+# Linux uses GTK titlebar by default
+gtk-titlebar = true

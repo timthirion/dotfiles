@@ -9,8 +9,7 @@ font-family = "SpaceMono Nerd Font"
 font-feature = -calt
 font-thicken = true
 
-# Set initial window to maximized
-maximize = true
+# Window maximization is set per-platform in config.local
 
 # Theme
 theme = catppuccin-mocha.conf
@@ -29,10 +28,5 @@ shell-integration-features = cursor,sudo,title
 # Mouse
 focus-follows-mouse = true
 
-# macOS specific
-macos-titlebar-style = tabs
-window-show-tab-bar = always
-keybind = shift+enter=text:\n
-
-# Machine-specific overrides (symlinked by fish config)
+# Platform-specific overrides (symlinked by fish config based on OS)
 config-file = config.local

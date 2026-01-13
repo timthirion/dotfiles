@@ -84,14 +84,24 @@ starship init fish | source
 # opam configuration
 source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
-# Symlink machine-specific configs based on hostname
+# Symlink platform and machine-specific Ghostty configs
 if status is-interactive
+  set -l os (uname -s)
   set -l host (hostname -s)
-  switch $host
-    case "tt-mini"
-      ln -sf ~/.config/ghostty/config.desktop ~/.config/ghostty/config.local
-    case "tt-macbook"
-      ln -sf ~/.config/ghostty/config.laptop ~/.config/ghostty/config.local
+
+  switch $os
+    case "Linux"
+      # Linux uses config.linux directly (font size baked in)
+      ln -sf ~/.config/ghostty/config.linux ~/.config/ghostty/config.local
+    case "Darwin"
+      # macOS uses config.macos which then loads machine-specific settings
+      ln -sf ~/.config/ghostty/config.macos ~/.config/ghostty/config.local
+      switch $host
+        case "tt-mini"
+          ln -sf ~/.config/ghostty/config.desktop ~/.config/ghostty/config.macos.machine
+        case "tt-macbook"
+          ln -sf ~/.config/ghostty/config.laptop ~/.config/ghostty/config.macos.machine
+      end
   end
 end
 

@@ -1,0 +1,16 @@
+# macOS-specific settings
+# Loaded via config.local symlink on macOS machines
+
+# macOS titlebar style
+macos-titlebar-style = tabs
+window-show-tab-bar = always
+
+# Start maximized on macOS
+maximize = true
+
+# macOS keybind for shift+enter (just newline)
+keybind = shift+enter=text:\n
+
+# Machine-specific overrides (symlinked by fish config based on hostname)
+# This allows tt-mini vs tt-macbook to have different font sizes
+config-file = config.macos.machine
