@@ -92,15 +92,15 @@ if status is-interactive
   switch $os
     case "Linux"
       # Linux uses config.linux directly (font size baked in)
-      ln -sf ~/.config/ghostty/config.linux ~/.config/ghostty/config.local
+      ln -snf ~/.config/ghostty/config.linux ~/.config/ghostty/config.local
     case "Darwin"
       # macOS uses config.macos which then loads machine-specific settings
-      ln -sf ~/.config/ghostty/config.macos ~/.config/ghostty/config.local
+      ln -snf ~/.config/ghostty/config.macos ~/.config/ghostty/config.local
       switch $host
         case "tt-mini"
-          ln -sf ~/.config/ghostty/config.desktop ~/.config/ghostty/config.macos.machine
+          ln -snf ~/.config/ghostty/config.desktop ~/.config/ghostty/config.macos.machine
         case "tt-macbook"
-          ln -sf ~/.config/ghostty/config.laptop ~/.config/ghostty/config.macos.machine
+          ln -snf ~/.config/ghostty/config.laptop ~/.config/ghostty/config.macos.machine
       end
   end
 end
