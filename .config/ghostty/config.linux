@@ -2,7 +2,7 @@
 # Loaded via config.local symlink on Linux machines
 
 # Font size
-font-size = 20
+font-size = 17
 
 # Window padding
 window-padding-x = 10
