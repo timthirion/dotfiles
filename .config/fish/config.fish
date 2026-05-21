@@ -75,6 +75,17 @@ alias n "ninja"
 alias uuid "uuidgen"
 alias v "nvim"
 
+# Modern CLI extras (cross-platform; guarded so a missing tool never breaks the shell).
+# Ubuntu's apt ships fd/bat under different binary names than Homebrew does.
+if not type -q fd; and type -q fdfind
+  alias fd fdfind
+end
+if not type -q bat; and type -q batcat
+  alias bat batcat
+end
+type -q lazygit; and alias lg lazygit
+type -q btop; and alias top btop
+
 # Remap Ctrl+D to avoid closing the shell
 bind \cd delete-char
 
@@ -106,6 +117,25 @@ if status is-interactive
 end
 
 fzf --fish | source
+
+# zoxide: frecency-based cd  ->  `z <partial>` jumps, `zi` for an interactive pick
+type -q zoxide; and zoxide init fish | source
+
+# atuin: searchable/syncable shell history on Ctrl-R (loaded after fzf so it owns Ctrl-R;
+# up-arrow left as fish's default prefix search to avoid surprises)
+type -q atuin; and atuin init fish --disable-up-arrow | source
+
+# yazi: `y` opens the file manager and cd's to wherever you quit it
+if type -q yazi
+  function y
+    set -l tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if read -z cwd < "$tmp"; and test -n "$cwd"; and test "$cwd" != "$PWD"
+      builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+  end
+end
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/polycam/google-cloud-sdk/path.fish.inc" ]; . "$HOME/polycam/google-cloud-sdk/path.fish.inc"; end

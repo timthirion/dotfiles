@@ -1,0 +1,45 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  // Catppuccin Mocha flavored. Colors are raw truecolor SGR (38;2;R;G;B).
+  "logo": {
+    "type": "auto",
+    "padding": { "top": 1, "right": 3 }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "38;2;203;166;247", // mauve
+      "title": "38;2;137;180;250" // blue
+    },
+    "key": { "width": 8 }
+  },
+  "modules": [
+    "break",
+    {
+      "type": "title",
+      "color": {
+        "user": "38;2;243;139;168", // red
+        "at": "38;2;108;112;134",   // overlay0
+        "host": "38;2;137;180;250"  // blue
+      }
+    },
+    { "type": "separator", "string": "─", "length": 32 },
+    { "type": "os",        "key": "OS",     "keyColor": "38;2;243;139;168" }, // red
+    { "type": "kernel",    "key": "Kernel", "keyColor": "38;2;250;179;135" }, // peach
+    { "type": "host",      "key": "Host",   "keyColor": "38;2;249;226;175" }, // yellow
+    { "type": "uptime",    "key": "Uptime", "keyColor": "38;2;166;227;161" }, // green
+    { "type": "packages",  "key": "Pkgs",   "keyColor": "38;2;148;226;213" }, // teal
+    { "type": "shell",     "key": "Shell",  "keyColor": "38;2;137;220;235" }, // sky
+    { "type": "display",   "key": "Screen", "keyColor": "38;2;116;199;236" }, // sapphire
+    { "type": "de",        "key": "DE",     "keyColor": "38;2;137;180;250" }, // blue
+    { "type": "wm",        "key": "WM",     "keyColor": "38;2;180;190;254" }, // lavender
+    { "type": "terminal",  "key": "Term",   "keyColor": "38;2;203;166;247" }, // mauve
+    { "type": "separator", "string": "─", "length": 32 },
+    { "type": "cpu",       "key": "CPU",    "keyColor": "38;2;243;139;168" }, // red
+    { "type": "gpu",       "key": "GPU",    "keyColor": "38;2;250;179;135" }, // peach
+    { "type": "memory",    "key": "RAM",    "keyColor": "38;2;249;226;175" }, // yellow
+    { "type": "disk",      "key": "Disk",   "keyColor": "38;2;166;227;161" }, // green
+    "break",
+    { "type": "colors", "paddingLeft": 2, "symbol": "circle" }
+  ]
+}

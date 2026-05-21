@@ -6,6 +6,7 @@
 .config/.gsd-keyboard.settings-ported
 .config/blender
 .config/alacritty/alacritty.toml
+.config/atuin
 .config/configstore
 .config/dconf
 .config/evolution
