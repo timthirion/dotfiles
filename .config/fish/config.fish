@@ -86,6 +86,8 @@ end
 type -q lazygit; and alias lg lazygit
 type -q btop; and alias top btop
 
+alias portal='sed -i "" "s|^[[:space:]]*\"@poly/cpp\":.*|    \"@poly/cpp\": \"portal:../polycpp\",|" ~/polycam/polycam/package.json'
+
 # Remap Ctrl+D to avoid closing the shell
 bind \cd delete-char
 
