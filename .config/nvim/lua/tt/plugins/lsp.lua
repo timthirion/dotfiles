@@ -63,8 +63,6 @@ return {
             },
           },
         },
-        pyright = {},
-        ts_ls = {},
         clangd = {},
         rust_analyzer = {
           settings = {

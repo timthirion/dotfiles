@@ -19,16 +19,14 @@ return {
     dependencies = { "mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        -- Only install language servers for tools you have installed
         ensure_installed = {
-          "lua_ls",        -- Lua (always available in Neovim)
-          "pyright",       -- Python (you have Python via pyenv)
-          "ts_ls",         -- TypeScript/JavaScript (you have Node.js)
-          "clangd",        -- C/C++ (system compiler available)
+          "lua_ls",        -- Lua
+          "clangd",        -- C/C++
           "rust_analyzer", -- Rust
+          -- pyright and ts_ls disabled (require npm which uses work VPN)
         },
-        automatic_installation = false, -- Don't auto-install to avoid errors
-        automatic_enable = false, -- Disable for Nvim 0.10 compatibility (uses vim.lsp.enable which requires 0.11+)
+        automatic_installation = false,
+        automatic_enable = true,
       })
     end,
   },
