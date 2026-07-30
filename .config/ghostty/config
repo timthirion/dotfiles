@@ -5,7 +5,11 @@ adjust-cell-height = -20%
 background = #1e1e2e
 
 # Font
-font-family = "SpaceMono Nerd Font"
+# Use the "Mono" variant: it's the only SpaceMono Nerd Font family with all
+# four styles installed (the plain family ships Regular alone, so bold and
+# italic were being synthesized), and its icon glyphs are forced to a fixed
+# advance width so Nerd Font symbols can't shift column alignment.
+font-family = "SpaceMono Nerd Font Mono"
 font-feature = -calt
 font-thicken = true
 

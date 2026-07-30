@@ -28,6 +28,10 @@ brew "fastfetch"
 # Diffs
 brew "difftastic"
 
-# Terminal + font
+# Terminal
 cask "ghostty"
-cask "font-space-mono-nerd-font"
+
+# No font cask: SpaceMono Nerd Font lives in .assets/fonts and is installed by
+# hand into ~/Library/Fonts. The cask can't coexist with those files -- it
+# aborts on "existing Font is different" because it ships a newer release than
+# the copies committed here.
