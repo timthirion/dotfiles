@@ -12,8 +12,10 @@ wezterm.on('gui-startup', function(cmd)
 end)
 
 -- Font
+-- The "Mono" family is the one with all four styles installed; the plain
+-- family ships Regular alone, so bold and italic get synthesized.
 config.font = wezterm.font({
-  family = 'SpaceMono Nerd Font',
+  family = 'SpaceMono Nerd Font Mono',
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
 })
 config.font_size = 20
